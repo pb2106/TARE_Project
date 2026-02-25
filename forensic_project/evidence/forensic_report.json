@@ -1,0 +1,1666 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-02-25T13:20:51.029712",
+    "module": "reconstruction",
+    "event_type": "timeline_built",
+    "severity": "INFO",
+    "detail": "Reconstructed timeline with 0 events"
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-02-25T13:20:55.389852",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: xsel.log (0 bytes)"
+  },
+  {
+    "id": 3,
+    "timestamp": "2026-02-25T13:21:05.661706",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: notices.cache (0 bytes)"
+  },
+  {
+    "id": 4,
+    "timestamp": "2026-02-25T13:21:05.686679",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 3c9d068aa053e2a1c4313fe3391b7a8ee57c4fbd09c4e8aeae49ef333a740150.cache (199 bytes)"
+  },
+  {
+    "id": 5,
+    "timestamp": "2026-02-25T13:21:05.687669",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 8c054ac91082b2ed4862701ed278dc96a78db796db69dedc296e13baab307527.cache (199 bytes)"
+  },
+  {
+    "id": 6,
+    "timestamp": "2026-02-25T13:21:05.688855",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 47d7b47961c7ef585686e506e0813818f7258527b141037db64a28a755f7725b.cache (0 bytes)"
+  },
+  {
+    "id": 7,
+    "timestamp": "2026-02-25T13:21:06.224895",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: idea.log (324224 bytes)"
+  },
+  {
+    "id": 8,
+    "timestamp": "2026-02-25T13:21:06.605742",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: vpn-app.log (429735 bytes)"
+  },
+  {
+    "id": 9,
+    "timestamp": "2026-02-25T13:21:06.608244",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "backup_file: user-places.xbel.bak (4416 bytes)"
+  },
+  {
+    "id": 10,
+    "timestamp": "2026-02-25T13:21:06.609656",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "recent_registry: recently-used.xbel (172923 bytes)"
+  },
+  {
+    "id": 11,
+    "timestamp": "2026-02-25T13:21:06.617092",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: errors.log (78 bytes)"
+  },
+  {
+    "id": 12,
+    "timestamp": "2026-02-25T13:21:06.631603",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: home-9cd74fa6.log (32768 bytes)"
+  },
+  {
+    "id": 13,
+    "timestamp": "2026-02-25T13:21:06.698922",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: wayland-session.log (0 bytes)"
+  },
+  {
+    "id": 14,
+    "timestamp": "2026-02-25T13:21:07.649401",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: chrome_debug.log (53717 bytes)"
+  },
+  {
+    "id": 15,
+    "timestamp": "2026-02-25T13:21:07.655614",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (46 bytes)"
+  },
+  {
+    "id": 16,
+    "timestamp": "2026-02-25T13:21:07.657353",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (76 bytes)"
+  },
+  {
+    "id": 17,
+    "timestamp": "2026-02-25T13:21:07.674663",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (0 bytes)"
+  },
+  {
+    "id": 18,
+    "timestamp": "2026-02-25T13:21:07.677331",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (114 bytes)"
+  },
+  {
+    "id": 19,
+    "timestamp": "2026-02-25T13:21:07.765007",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (1531 bytes)"
+  },
+  {
+    "id": 20,
+    "timestamp": "2026-02-25T13:21:07.767513",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (31932 bytes)"
+  },
+  {
+    "id": 21,
+    "timestamp": "2026-02-25T13:21:07.770485",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (32497 bytes)"
+  },
+  {
+    "id": 22,
+    "timestamp": "2026-02-25T13:21:07.775903",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (38 bytes)"
+  },
+  {
+    "id": 23,
+    "timestamp": "2026-02-25T13:21:07.777753",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (46007 bytes)"
+  },
+  {
+    "id": 24,
+    "timestamp": "2026-02-25T13:21:07.779597",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (1378 bytes)"
+  },
+  {
+    "id": 25,
+    "timestamp": "2026-02-25T13:21:08.072266",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 26,
+    "timestamp": "2026-02-25T13:21:08.342025",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 27,
+    "timestamp": "2026-02-25T13:21:08.355031",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27000 bytes)"
+  },
+  {
+    "id": 28,
+    "timestamp": "2026-02-25T13:21:08.359995",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 29,
+    "timestamp": "2026-02-25T13:21:08.361482",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 30,
+    "timestamp": "2026-02-25T13:21:08.366579",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 31,
+    "timestamp": "2026-02-25T13:21:08.388198",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 32,
+    "timestamp": "2026-02-25T13:21:08.400905",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27002 bytes)"
+  },
+  {
+    "id": 33,
+    "timestamp": "2026-02-25T13:21:08.406291",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 34,
+    "timestamp": "2026-02-25T13:21:08.408072",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 35,
+    "timestamp": "2026-02-25T13:21:08.415424",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 36,
+    "timestamp": "2026-02-25T13:21:08.437463",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 37,
+    "timestamp": "2026-02-25T13:21:08.695471",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 38,
+    "timestamp": "2026-02-25T13:21:09.053543",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 39,
+    "timestamp": "2026-02-25T13:21:09.070398",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 40,
+    "timestamp": "2026-02-25T13:21:09.073291",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 41,
+    "timestamp": "2026-02-25T13:21:09.089254",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 42,
+    "timestamp": "2026-02-25T13:21:09.144234",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 43,
+    "timestamp": "2026-02-25T13:21:09.157690",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 44,
+    "timestamp": "2026-02-25T13:21:09.164313",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 45,
+    "timestamp": "2026-02-25T13:21:09.175266",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 46,
+    "timestamp": "2026-02-25T13:21:09.210825",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 47,
+    "timestamp": "2026-02-25T13:21:09.701039",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 48,
+    "timestamp": "2026-02-25T13:21:09.923013",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 49,
+    "timestamp": "2026-02-25T13:21:09.931690",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 50,
+    "timestamp": "2026-02-25T13:21:09.935426",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 51,
+    "timestamp": "2026-02-25T13:21:09.942194",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 52,
+    "timestamp": "2026-02-25T13:21:09.996114",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 53,
+    "timestamp": "2026-02-25T13:21:10.004633",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 54,
+    "timestamp": "2026-02-25T13:21:10.007515",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 55,
+    "timestamp": "2026-02-25T13:21:10.017392",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 56,
+    "timestamp": "2026-02-25T13:21:10.051242",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 57,
+    "timestamp": "2026-02-25T13:21:11.316530",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 58,
+    "timestamp": "2026-02-25T13:21:11.585299",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 59,
+    "timestamp": "2026-02-25T13:21:11.594549",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 60,
+    "timestamp": "2026-02-25T13:21:11.600139",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 61,
+    "timestamp": "2026-02-25T13:21:11.723605",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 62,
+    "timestamp": "2026-02-25T13:21:11.734719",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 63,
+    "timestamp": "2026-02-25T13:21:11.748787",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 64,
+    "timestamp": "2026-02-25T13:21:11.775218",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (50617 bytes)"
+  },
+  {
+    "id": 65,
+    "timestamp": "2026-02-25T13:21:12.014961",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 66,
+    "timestamp": "2026-02-25T13:21:12.248494",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 67,
+    "timestamp": "2026-02-25T13:21:12.266820",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27000 bytes)"
+  },
+  {
+    "id": 68,
+    "timestamp": "2026-02-25T13:21:12.272982",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 69,
+    "timestamp": "2026-02-25T13:21:12.278327",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 70,
+    "timestamp": "2026-02-25T13:21:12.338171",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 71,
+    "timestamp": "2026-02-25T13:21:12.352806",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27002 bytes)"
+  },
+  {
+    "id": 72,
+    "timestamp": "2026-02-25T13:21:12.359344",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 73,
+    "timestamp": "2026-02-25T13:21:12.370339",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 74,
+    "timestamp": "2026-02-25T13:21:12.400098",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (50617 bytes)"
+  },
+  {
+    "id": 75,
+    "timestamp": "2026-02-25T13:21:12.503811",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "shortcut: Radmin VPN.lnk (553 bytes)"
+  },
+  {
+    "id": 76,
+    "timestamp": "2026-02-25T13:21:12.508809",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "shortcut: Microsoft Threat Modeling Tool 2016.lnk (891 bytes)"
+  },
+  {
+    "id": 77,
+    "timestamp": "2026-02-25T13:21:25.397019",
+    "module": "system_metadata",
+    "event_type": "metadata_collected",
+    "severity": "INFO",
+    "detail": "Collected metadata for 0 files in /home/naegleria/Desktop/TARE_proj/forensic_project/test_environment"
+  },
+  {
+    "id": 78,
+    "timestamp": "2026-02-25T13:21:42.131750",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Chrome History (8 entries)"
+  },
+  {
+    "id": 79,
+    "timestamp": "2026-02-25T13:21:42.139653",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Firefox places.json (8 entries)"
+  },
+  {
+    "id": 80,
+    "timestamp": "2026-02-25T13:21:42.146400",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Chrome Cookies (5 entries)"
+  },
+  {
+    "id": 81,
+    "timestamp": "2026-02-25T13:21:42.150819",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Firefox cookies.json"
+  },
+  {
+    "id": 82,
+    "timestamp": "2026-02-25T13:21:42.155030",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://mail.google.com/mail/inbox\u2026"
+  },
+  {
+    "id": 83,
+    "timestamp": "2026-02-25T13:21:42.158390",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://banking.example.com/accounts\u2026"
+  },
+  {
+    "id": 84,
+    "timestamp": "2026-02-25T13:21:42.162829",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://docs.python.org/3/library/os.html\u2026"
+  },
+  {
+    "id": 85,
+    "timestamp": "2026-02-25T13:21:42.167485",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://mail.google.com/mail/inbox\u2026"
+  },
+  {
+    "id": 86,
+    "timestamp": "2026-02-25T13:21:42.170327",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://banking.example.com/accounts\u2026"
+  },
+  {
+    "id": 87,
+    "timestamp": "2026-02-25T13:21:42.172971",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://docs.python.org/3/library/os.html\u2026"
+  },
+  {
+    "id": 88,
+    "timestamp": "2026-02-25T13:21:42.175250",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Simulation complete: 16 artifacts created"
+  },
+  {
+    "id": 89,
+    "timestamp": "2026-02-25T13:21:49.547244",
+    "module": "browser_cache",
+    "event_type": "artifacts_parsed",
+    "severity": "FINDING",
+    "detail": "Parsed 32 browser artifacts"
+  },
+  {
+    "id": 90,
+    "timestamp": "2026-02-25T13:21:56.572291",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_1.txt (295 bytes)"
+  },
+  {
+    "id": 91,
+    "timestamp": "2026-02-25T13:21:56.582674",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_2.txt (240 bytes)"
+  },
+  {
+    "id": 92,
+    "timestamp": "2026-02-25T13:21:56.588104",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_3.txt (212 bytes)"
+  },
+  {
+    "id": 93,
+    "timestamp": "2026-02-25T13:21:56.591786",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_4.txt (147 bytes)"
+  },
+  {
+    "id": 94,
+    "timestamp": "2026-02-25T13:21:56.595273",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_5.txt (235 bytes)"
+  },
+  {
+    "id": 95,
+    "timestamp": "2026-02-25T13:21:56.599046",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created document: confidential_review.doc (2976 bytes)"
+  },
+  {
+    "id": 96,
+    "timestamp": "2026-02-25T13:21:56.602281",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created image file: screenshot_desktop.png (1288 bytes)"
+  },
+  {
+    "id": 97,
+    "timestamp": "2026-02-25T13:21:56.605955",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: confidential_review.doc"
+  },
+  {
+    "id": 98,
+    "timestamp": "2026-02-25T13:21:56.608637",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: screenshot_desktop.png"
+  },
+  {
+    "id": 99,
+    "timestamp": "2026-02-25T13:21:56.611547",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_1.txt"
+  },
+  {
+    "id": 100,
+    "timestamp": "2026-02-25T13:21:56.614445",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_2.txt"
+  },
+  {
+    "id": 101,
+    "timestamp": "2026-02-25T13:21:56.618097",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_3.txt"
+  },
+  {
+    "id": 102,
+    "timestamp": "2026-02-25T13:21:56.621249",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_4.txt"
+  },
+  {
+    "id": 103,
+    "timestamp": "2026-02-25T13:21:56.624516",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_5.txt"
+  },
+  {
+    "id": 104,
+    "timestamp": "2026-02-25T13:21:56.627383",
+    "module": "activity_simulation",
+    "event_type": "file_renamed",
+    "severity": "INFO",
+    "detail": "Renamed: user_note_1.txt \u2192 important_notes_FINAL.txt"
+  },
+  {
+    "id": 105,
+    "timestamp": "2026-02-25T13:21:56.630610",
+    "module": "activity_simulation",
+    "event_type": "file_moved",
+    "severity": "INFO",
+    "detail": "Moved: user_note_2.txt \u2192 temp_files/moved_note.txt"
+  },
+  {
+    "id": 106,
+    "timestamp": "2026-02-25T13:21:56.633820",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created swap file: .user_note_3.txt.swp"
+  },
+  {
+    "id": 107,
+    "timestamp": "2026-02-25T13:21:56.636839",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created lock file: ~$confidential_review.doc"
+  },
+  {
+    "id": 108,
+    "timestamp": "2026-02-25T13:21:56.641643",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created recent-use log: recently_opened.log"
+  },
+  {
+    "id": 109,
+    "timestamp": "2026-02-25T13:21:56.645539",
+    "module": "activity_simulation",
+    "event_type": "simulation_complete",
+    "severity": "INFO",
+    "detail": "Simulation finished \u2014 19 actions recorded"
+  },
+  {
+    "id": 110,
+    "timestamp": "2026-02-25T13:37:58.167193",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Chrome History (8 entries)"
+  },
+  {
+    "id": 111,
+    "timestamp": "2026-02-25T13:37:58.176195",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Firefox places.json (8 entries)"
+  },
+  {
+    "id": 112,
+    "timestamp": "2026-02-25T13:37:58.181767",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Chrome Cookies (5 entries)"
+  },
+  {
+    "id": 113,
+    "timestamp": "2026-02-25T13:37:58.187657",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Created Firefox cookies.json"
+  },
+  {
+    "id": 114,
+    "timestamp": "2026-02-25T13:37:58.192447",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://mail.google.com/mail/inbox\u2026"
+  },
+  {
+    "id": 115,
+    "timestamp": "2026-02-25T13:37:58.197099",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://banking.example.com/accounts\u2026"
+  },
+  {
+    "id": 116,
+    "timestamp": "2026-02-25T13:37:58.201908",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Chrome): https://docs.python.org/3/library/os.html\u2026"
+  },
+  {
+    "id": 117,
+    "timestamp": "2026-02-25T13:37:58.206949",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://mail.google.com/mail/inbox\u2026"
+  },
+  {
+    "id": 118,
+    "timestamp": "2026-02-25T13:37:58.210771",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://banking.example.com/accounts\u2026"
+  },
+  {
+    "id": 119,
+    "timestamp": "2026-02-25T13:37:58.215136",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Cached (Firefox): https://docs.python.org/3/library/os.html\u2026"
+  },
+  {
+    "id": 120,
+    "timestamp": "2026-02-25T13:37:58.218849",
+    "module": "browser_cache",
+    "event_type": "simulation",
+    "severity": "INFO",
+    "detail": "Simulation complete: 16 artifacts created"
+  },
+  {
+    "id": 121,
+    "timestamp": "2026-02-25T13:38:40.392745",
+    "module": "browser_cache",
+    "event_type": "artifacts_parsed",
+    "severity": "FINDING",
+    "detail": "Parsed 32 browser artifacts"
+  },
+  {
+    "id": 122,
+    "timestamp": "2026-02-25T13:38:49.352749",
+    "module": "browser_cache",
+    "event_type": "artifacts_deleted",
+    "severity": "INFO",
+    "detail": "Normal-deleted 10 browser artifact files"
+  },
+  {
+    "id": 123,
+    "timestamp": "2026-02-25T13:38:54.595968",
+    "module": "browser_cache",
+    "event_type": "artifacts_parsed",
+    "severity": "FINDING",
+    "detail": "Parsed 0 browser artifacts"
+  },
+  {
+    "id": 124,
+    "timestamp": "2026-02-25T13:39:00.517517",
+    "module": "system_metadata",
+    "event_type": "metadata_collected",
+    "severity": "INFO",
+    "detail": "Collected metadata for 10 files in /home/naegleria/Desktop/TARE_proj/forensic_project/test_environment"
+  },
+  {
+    "id": 125,
+    "timestamp": "2026-02-25T13:39:02.985529",
+    "module": "system_metadata",
+    "event_type": "syslog_collected",
+    "severity": "INFO",
+    "detail": "Collected 50 system log lines (Linux)"
+  },
+  {
+    "id": 126,
+    "timestamp": "2026-02-25T13:39:08.013132",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "swap_file: .user_note_3.txt.swp (145 bytes)"
+  },
+  {
+    "id": 127,
+    "timestamp": "2026-02-25T13:39:08.017567",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: recently_opened.log (313 bytes)"
+  },
+  {
+    "id": 128,
+    "timestamp": "2026-02-25T13:39:08.024416",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "office_lock: ~$confidential_review.doc (24 bytes)"
+  },
+  {
+    "id": 129,
+    "timestamp": "2026-02-25T13:39:08.038278",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "swap_file: .user_note_3.txt.swp (145 bytes)"
+  },
+  {
+    "id": 130,
+    "timestamp": "2026-02-25T13:39:08.042540",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: recently_opened.log (313 bytes)"
+  },
+  {
+    "id": 131,
+    "timestamp": "2026-02-25T13:39:08.047885",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "office_lock: ~$confidential_review.doc (24 bytes)"
+  },
+  {
+    "id": 132,
+    "timestamp": "2026-02-25T13:39:08.062323",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: xsel.log (0 bytes)"
+  },
+  {
+    "id": 133,
+    "timestamp": "2026-02-25T13:39:18.153609",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: notices.cache (0 bytes)"
+  },
+  {
+    "id": 134,
+    "timestamp": "2026-02-25T13:39:18.185793",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 3c9d068aa053e2a1c4313fe3391b7a8ee57c4fbd09c4e8aeae49ef333a740150.cache (199 bytes)"
+  },
+  {
+    "id": 135,
+    "timestamp": "2026-02-25T13:39:18.189751",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 8c054ac91082b2ed4862701ed278dc96a78db796db69dedc296e13baab307527.cache (199 bytes)"
+  },
+  {
+    "id": 136,
+    "timestamp": "2026-02-25T13:39:18.193077",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: 47d7b47961c7ef585686e506e0813818f7258527b141037db64a28a755f7725b.cache (0 bytes)"
+  },
+  {
+    "id": 137,
+    "timestamp": "2026-02-25T13:39:18.790446",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: idea.log (324224 bytes)"
+  },
+  {
+    "id": 138,
+    "timestamp": "2026-02-25T13:39:19.195767",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: vpn-app.log (429735 bytes)"
+  },
+  {
+    "id": 139,
+    "timestamp": "2026-02-25T13:39:19.201143",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "backup_file: user-places.xbel.bak (4416 bytes)"
+  },
+  {
+    "id": 140,
+    "timestamp": "2026-02-25T13:39:19.206964",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "recent_registry: recently-used.xbel (172923 bytes)"
+  },
+  {
+    "id": 141,
+    "timestamp": "2026-02-25T13:39:19.215337",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: errors.log (78 bytes)"
+  },
+  {
+    "id": 142,
+    "timestamp": "2026-02-25T13:39:19.231275",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: home-9cd74fa6.log (32768 bytes)"
+  },
+  {
+    "id": 143,
+    "timestamp": "2026-02-25T13:39:19.305495",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: wayland-session.log (0 bytes)"
+  },
+  {
+    "id": 144,
+    "timestamp": "2026-02-25T13:39:20.315716",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: chrome_debug.log (53717 bytes)"
+  },
+  {
+    "id": 145,
+    "timestamp": "2026-02-25T13:39:20.324314",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (46 bytes)"
+  },
+  {
+    "id": 146,
+    "timestamp": "2026-02-25T13:39:20.327655",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (76 bytes)"
+  },
+  {
+    "id": 147,
+    "timestamp": "2026-02-25T13:39:20.349291",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (0 bytes)"
+  },
+  {
+    "id": 148,
+    "timestamp": "2026-02-25T13:39:20.355400",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (114 bytes)"
+  },
+  {
+    "id": 149,
+    "timestamp": "2026-02-25T13:39:20.452542",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (1531 bytes)"
+  },
+  {
+    "id": 150,
+    "timestamp": "2026-02-25T13:39:20.456985",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (31932 bytes)"
+  },
+  {
+    "id": 151,
+    "timestamp": "2026-02-25T13:39:20.462099",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (32497 bytes)"
+  },
+  {
+    "id": 152,
+    "timestamp": "2026-02-25T13:39:20.469816",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (38 bytes)"
+  },
+  {
+    "id": 153,
+    "timestamp": "2026-02-25T13:39:20.473772",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (46007 bytes)"
+  },
+  {
+    "id": 154,
+    "timestamp": "2026-02-25T13:39:20.477595",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "log_fragment: 000003.log (1378 bytes)"
+  },
+  {
+    "id": 155,
+    "timestamp": "2026-02-25T13:39:20.774628",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 156,
+    "timestamp": "2026-02-25T13:39:21.003921",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 157,
+    "timestamp": "2026-02-25T13:39:21.021583",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27000 bytes)"
+  },
+  {
+    "id": 158,
+    "timestamp": "2026-02-25T13:39:21.031454",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 159,
+    "timestamp": "2026-02-25T13:39:21.036454",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 160,
+    "timestamp": "2026-02-25T13:39:21.044408",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 161,
+    "timestamp": "2026-02-25T13:39:21.073289",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 162,
+    "timestamp": "2026-02-25T13:39:21.090936",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27002 bytes)"
+  },
+  {
+    "id": 163,
+    "timestamp": "2026-02-25T13:39:21.099338",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 164,
+    "timestamp": "2026-02-25T13:39:21.103769",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 165,
+    "timestamp": "2026-02-25T13:39:21.115507",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 166,
+    "timestamp": "2026-02-25T13:39:21.139492",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 167,
+    "timestamp": "2026-02-25T13:39:21.405037",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 168,
+    "timestamp": "2026-02-25T13:39:21.637238",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 169,
+    "timestamp": "2026-02-25T13:39:21.646499",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 170,
+    "timestamp": "2026-02-25T13:39:21.651326",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 171,
+    "timestamp": "2026-02-25T13:39:21.659139",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 172,
+    "timestamp": "2026-02-25T13:39:21.695342",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 173,
+    "timestamp": "2026-02-25T13:39:21.705425",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 174,
+    "timestamp": "2026-02-25T13:39:21.709849",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 175,
+    "timestamp": "2026-02-25T13:39:21.721227",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 176,
+    "timestamp": "2026-02-25T13:39:21.742648",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 177,
+    "timestamp": "2026-02-25T13:39:22.186802",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 178,
+    "timestamp": "2026-02-25T13:39:22.413215",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 179,
+    "timestamp": "2026-02-25T13:39:22.424386",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 180,
+    "timestamp": "2026-02-25T13:39:22.428625",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2142 bytes)"
+  },
+  {
+    "id": 181,
+    "timestamp": "2026-02-25T13:39:22.438441",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 182,
+    "timestamp": "2026-02-25T13:39:22.478288",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 183,
+    "timestamp": "2026-02-25T13:39:22.490306",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (39 bytes)"
+  },
+  {
+    "id": 184,
+    "timestamp": "2026-02-25T13:39:22.495343",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 185,
+    "timestamp": "2026-02-25T13:39:22.508585",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 186,
+    "timestamp": "2026-02-25T13:39:22.530867",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (34761 bytes)"
+  },
+  {
+    "id": 187,
+    "timestamp": "2026-02-25T13:39:23.867981",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 188,
+    "timestamp": "2026-02-25T13:39:24.146444",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 189,
+    "timestamp": "2026-02-25T13:39:24.159160",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 190,
+    "timestamp": "2026-02-25T13:39:24.167076",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 191,
+    "timestamp": "2026-02-25T13:39:24.294059",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 192,
+    "timestamp": "2026-02-25T13:39:24.307371",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 193,
+    "timestamp": "2026-02-25T13:39:24.323224",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 194,
+    "timestamp": "2026-02-25T13:39:24.355077",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (50617 bytes)"
+  },
+  {
+    "id": 195,
+    "timestamp": "2026-02-25T13:39:24.605137",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: mime.cache (137668 bytes)"
+  },
+  {
+    "id": 196,
+    "timestamp": "2026-02-25T13:39:24.851633",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2897 bytes)"
+  },
+  {
+    "id": 197,
+    "timestamp": "2026-02-25T13:39:24.869671",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27000 bytes)"
+  },
+  {
+    "id": 198,
+    "timestamp": "2026-02-25T13:39:24.878070",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 199,
+    "timestamp": "2026-02-25T13:39:24.886061",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2186 bytes)"
+  },
+  {
+    "id": 200,
+    "timestamp": "2026-02-25T13:39:24.952128",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: loaders.cache (2923 bytes)"
+  },
+  {
+    "id": 201,
+    "timestamp": "2026-02-25T13:39:24.970408",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: gconv-modules.cache (27002 bytes)"
+  },
+  {
+    "id": 202,
+    "timestamp": "2026-02-25T13:39:24.980058",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: giomodule.cache (150 bytes)"
+  },
+  {
+    "id": 203,
+    "timestamp": "2026-02-25T13:39:24.998116",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: immodules.cache (2228 bytes)"
+  },
+  {
+    "id": 204,
+    "timestamp": "2026-02-25T13:39:25.034202",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "cache_file: ld.so.cache (50617 bytes)"
+  },
+  {
+    "id": 205,
+    "timestamp": "2026-02-25T13:39:25.145334",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "shortcut: Radmin VPN.lnk (553 bytes)"
+  },
+  {
+    "id": 206,
+    "timestamp": "2026-02-25T13:39:25.152973",
+    "module": "residual_data",
+    "event_type": "artifact_found",
+    "severity": "FINDING",
+    "detail": "shortcut: Microsoft Threat Modeling Tool 2016.lnk (891 bytes)"
+  },
+  {
+    "id": 207,
+    "timestamp": "2026-02-25T13:39:33.782099",
+    "module": "reconstruction",
+    "event_type": "timeline_built",
+    "severity": "INFO",
+    "detail": "Reconstructed timeline with 329 events"
+  },
+  {
+    "id": 208,
+    "timestamp": "2026-02-25T13:42:18.625327",
+    "module": "reconstruction",
+    "event_type": "timeline_built",
+    "severity": "INFO",
+    "detail": "Reconstructed timeline with 234 events"
+  }
+]

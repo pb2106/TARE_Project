@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-02-25T13:21:56.650275",
+    "action": "Simulated 20 user file activities",
+    "category": "simulation",
+    "status": "success",
+    "details": {
+      "files_created": []
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-02-25T13:40:47.326247",
+    "action": "Deleted 'collected_syslog.txt' using normal method",
+    "category": "deletion",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/system_logs/collected_syslog.txt",
+      "method": "normal",
+      "status": "success",
+      "timestamp": "2026-02-25T13:40:47.318142",
+      "file_size": 7247,
+      "error": null,
+      "details": {
+        "technique": "normal",
+        "trash_used": true,
+        "note": "File moved to Recycle Bin"
+      },
+      "metadata": {
+        "filename": "collected_syslog.txt",
+        "size_bytes": 7247,
+        "created": "2026-02-25T13:39:02.983863",
+        "modified": "2026-02-25T13:39:02.983863",
+        "accessed": "2026-02-25T13:39:03.315863"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "timestamp": "2026-02-25T13:40:52.015866",
+    "action": "Verified 'collected_syslog.txt' \u2013 NOT RECOVERABLE",
+    "category": "verification",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/system_logs/collected_syslog.txt",
+      "filename": "collected_syslog.txt",
+      "timestamp": "2026-02-25T13:40:51.995931",
+      "checks": {
+        "path_exists": false,
+        "name_matches": 0,
+        "hash_matches": 0,
+        "signature_matches": "skipped (no sample provided)"
+      },
+      "recoverable": false,
+      "recovery_risk": "NONE",
+      "summary": "\u2713 File 'collected_syslog.txt' appears to be securely deleted. No recoverable artifacts found.",
+      "found_artifacts": []
+    }
+  },
+  {
+    "id": 4,
+    "timestamp": "2026-02-25T13:41:07.855320",
+    "action": "Deleted '.user_note_3.txt.swp' using permanent method",
+    "category": "deletion",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/.user_note_3.txt.swp",
+      "method": "permanent",
+      "status": "success",
+      "timestamp": "2026-02-25T13:41:07.853843",
+      "file_size": 145,
+      "error": null,
+      "details": {
+        "technique": "permanent",
+        "note": "File permanently removed (bypassed trash)"
+      },
+      "metadata": {
+        "filename": ".user_note_3.txt.swp",
+        "size_bytes": 145,
+        "created": "2026-02-25T13:21:56.633582",
+        "modified": "2026-02-25T13:21:56.633582",
+        "accessed": "2026-02-25T13:40:52.007860"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "timestamp": "2026-02-25T13:41:16.927908",
+    "action": "Verified '.user_note_3.txt.swp' \u2013 NOT RECOVERABLE",
+    "category": "verification",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/.user_note_3.txt.swp",
+      "filename": ".user_note_3.txt.swp",
+      "timestamp": "2026-02-25T13:41:16.905975",
+      "checks": {
+        "path_exists": false,
+        "name_matches": 0,
+        "hash_matches": 0,
+        "signature_matches": "skipped (no sample provided)"
+      },
+      "recoverable": false,
+      "recovery_risk": "NONE",
+      "summary": "\u2713 File '.user_note_3.txt.swp' appears to be securely deleted. No recoverable artifacts found.",
+      "found_artifacts": []
+    }
+  },
+  {
+    "id": 6,
+    "timestamp": "2026-02-25T13:41:20.522546",
+    "action": "Verified 'collected_syslog.txt' \u2013 NOT RECOVERABLE",
+    "category": "verification",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/system_logs/collected_syslog.txt",
+      "filename": "collected_syslog.txt",
+      "timestamp": "2026-02-25T13:41:20.512538",
+      "checks": {
+        "path_exists": false,
+        "name_matches": 0,
+        "hash_matches": 0,
+        "signature_matches": "skipped (no sample provided)"
+      },
+      "recoverable": false,
+      "recovery_risk": "NONE",
+      "summary": "\u2713 File 'collected_syslog.txt' appears to be securely deleted. No recoverable artifacts found.",
+      "found_artifacts": []
+    }
+  },
+  {
+    "id": 7,
+    "timestamp": "2026-02-25T13:41:33.190445",
+    "action": "Deleted 'screenshot_desktop.png' using normal method",
+    "category": "deletion",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/screenshot_desktop.png",
+      "method": "normal",
+      "status": "success",
+      "timestamp": "2026-02-25T13:41:33.186988",
+      "file_size": 1288,
+      "error": null,
+      "details": {
+        "technique": "normal",
+        "trash_used": true,
+        "note": "File moved to Recycle Bin"
+      },
+      "metadata": {
+        "filename": "screenshot_desktop.png",
+        "size_bytes": 1288,
+        "created": "2026-02-25T13:21:56.602004",
+        "modified": "2026-02-25T13:21:56.602004",
+        "accessed": "2026-02-25T13:21:56.607955"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "timestamp": "2026-02-25T13:41:42.570224",
+    "action": "Verified 'screenshot_desktop.png' \u2013 NOT RECOVERABLE",
+    "category": "verification",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/screenshot_desktop.png",
+      "filename": "screenshot_desktop.png",
+      "timestamp": "2026-02-25T13:41:42.557733",
+      "checks": {
+        "path_exists": false,
+        "name_matches": 0,
+        "hash_matches": 0,
+        "signature_matches": "skipped (no sample provided)"
+      },
+      "recoverable": false,
+      "recovery_risk": "NONE",
+      "summary": "\u2713 File 'screenshot_desktop.png' appears to be securely deleted. No recoverable artifacts found.",
+      "found_artifacts": []
+    }
+  }
+]

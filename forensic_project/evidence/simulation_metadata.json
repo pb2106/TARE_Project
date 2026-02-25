@@ -1,0 +1,116 @@
+[
+  {
+    "timestamp": "2026-02-25T13:21:56.572258",
+    "event_type": "file_created",
+    "detail": "Created text file: user_note_1.txt (295 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_1.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.582627",
+    "event_type": "file_created",
+    "detail": "Created text file: user_note_2.txt (240 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_2.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.588074",
+    "event_type": "file_created",
+    "detail": "Created text file: user_note_3.txt (212 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_3.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.591752",
+    "event_type": "file_created",
+    "detail": "Created text file: user_note_4.txt (147 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_4.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.595249",
+    "event_type": "file_created",
+    "detail": "Created text file: user_note_5.txt (235 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_5.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.599021",
+    "event_type": "file_created",
+    "detail": "Created document: confidential_review.doc (2976 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/confidential_review.doc"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.602258",
+    "event_type": "file_created",
+    "detail": "Created image file: screenshot_desktop.png (1288 bytes)",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/screenshot_desktop.png"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.605931",
+    "event_type": "file_accessed",
+    "detail": "Read file: confidential_review.doc",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/confidential_review.doc"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.608612",
+    "event_type": "file_accessed",
+    "detail": "Read file: screenshot_desktop.png",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/screenshot_desktop.png"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.611525",
+    "event_type": "file_accessed",
+    "detail": "Read file: user_note_1.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_1.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.614422",
+    "event_type": "file_accessed",
+    "detail": "Read file: user_note_2.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_2.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.618071",
+    "event_type": "file_accessed",
+    "detail": "Read file: user_note_3.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_3.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.621225",
+    "event_type": "file_accessed",
+    "detail": "Read file: user_note_4.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_4.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.624492",
+    "event_type": "file_accessed",
+    "detail": "Read file: user_note_5.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/user_note_5.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.627360",
+    "event_type": "file_renamed",
+    "detail": "Renamed: user_note_1.txt \u2192 important_notes_FINAL.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/user_files/important_notes_FINAL.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.630583",
+    "event_type": "file_moved",
+    "detail": "Moved: user_note_2.txt \u2192 temp_files/moved_note.txt",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/moved_note.txt"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.633792",
+    "event_type": "file_created",
+    "detail": "Created swap file: .user_note_3.txt.swp",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/.user_note_3.txt.swp"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.636802",
+    "event_type": "file_created",
+    "detail": "Created lock file: ~$confidential_review.doc",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/~$confidential_review.doc"
+  },
+  {
+    "timestamp": "2026-02-25T13:21:56.641628",
+    "event_type": "file_created",
+    "detail": "Created recent-use log: recently_opened.log",
+    "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/recently_opened.log"
+  }
+]

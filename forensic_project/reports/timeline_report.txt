@@ -1,0 +1,245 @@
+======================================================================
+  FORENSIC ACTIVITY RECONSTRUCTION – TIMELINE REPORT
+======================================================================
+  Generated: 2026-02-25 13:42:18
+  Total Events: 234
+======================================================================
+
+[2026-02-25 13:20:51] timeline_built       | Evidence (reconstruction) | Reconstructed timeline with 0 events
+[2026-02-25 13:20:55] artifact_found       | Evidence (residual_data)  | log_fragment: xsel.log (0 bytes)
+[2026-02-25 13:21:05] artifact_found       | Evidence (residual_data)  | cache_file: notices.cache (0 bytes)
+[2026-02-25 13:21:05] artifact_found       | Evidence (residual_data)  | cache_file: 3c9d068aa053e2a1c4313fe3391b7a8ee57c4fbd09c4e8aeae49ef333a740150.cache (199 bytes)
+[2026-02-25 13:21:05] artifact_found       | Evidence (residual_data)  | cache_file: 8c054ac91082b2ed4862701ed278dc96a78db796db69dedc296e13baab307527.cache (199 bytes)
+[2026-02-25 13:21:05] artifact_found       | Evidence (residual_data)  | cache_file: 47d7b47961c7ef585686e506e0813818f7258527b141037db64a28a755f7725b.cache (0 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | log_fragment: idea.log (324224 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | log_fragment: vpn-app.log (429735 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | backup_file: user-places.xbel.bak (4416 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | recent_registry: recently-used.xbel (172923 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | log_fragment: errors.log (78 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | log_fragment: home-9cd74fa6.log (32768 bytes)
+[2026-02-25 13:21:06] artifact_found       | Evidence (residual_data)  | log_fragment: wayland-session.log (0 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: chrome_debug.log (53717 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (46 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (76 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (0 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (114 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (1531 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (31932 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (32497 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (38 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (46007 bytes)
+[2026-02-25 13:21:07] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (1378 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27000 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27002 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:21:08] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:09] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:21:10] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:21:10] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:10] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:21:10] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:21:11] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (50617 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27000 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27002 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (50617 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | shortcut: Radmin VPN.lnk (553 bytes)
+[2026-02-25 13:21:12] artifact_found       | Evidence (residual_data)  | shortcut: Microsoft Threat Modeling Tool 2016.lnk (891 bytes)
+[2026-02-25 13:21:25] metadata_collected   | Evidence (system_metadata) | Collected metadata for 0 files in /home/naegleria/Desktop/TARE_proj/forensic_project/test_environment
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Created Chrome History (8 entries)
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Created Firefox places.json (8 entries)
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Created Chrome Cookies (5 entries)
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Created Firefox cookies.json
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://mail.google.com/mail/inbox…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://banking.example.com/accounts…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://docs.python.org/3/library/os.html…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://mail.google.com/mail/inbox…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://banking.example.com/accounts…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://docs.python.org/3/library/os.html…
+[2026-02-25 13:21:42] simulation           | Evidence (browser_cache)  | Simulation complete: 16 artifacts created
+[2026-02-25 13:21:49] artifacts_parsed     | Evidence (browser_cache)  | Parsed 32 browser artifacts
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created text file: user_note_1.txt (295 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created text file: user_note_1.txt (295 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created text file: user_note_2.txt (240 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created text file: user_note_2.txt (240 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created text file: user_note_3.txt (212 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created text file: user_note_3.txt (212 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created text file: user_note_4.txt (147 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created text file: user_note_4.txt (147 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created text file: user_note_5.txt (235 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created text file: user_note_5.txt (235 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created document: confidential_review.doc (2976 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created document: confidential_review.doc (2976 bytes)
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created image file: screenshot_desktop.png (1288 bytes)
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created image file: screenshot_desktop.png (1288 bytes)
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: confidential_review.doc
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: confidential_review.doc
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: screenshot_desktop.png
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: screenshot_desktop.png
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: user_note_1.txt
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: user_note_1.txt
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: user_note_2.txt
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: user_note_2.txt
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: user_note_3.txt
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: user_note_3.txt
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: user_note_4.txt
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: user_note_4.txt
+[2026-02-25 13:21:56] file_accessed        | Activity Simulation       | Read file: user_note_5.txt
+[2026-02-25 13:21:56] file_accessed        | Evidence (activity_simulation) | Read file: user_note_5.txt
+[2026-02-25 13:21:56] file_renamed         | Activity Simulation       | Renamed: user_note_1.txt → important_notes_FINAL.txt
+[2026-02-25 13:21:56] file_renamed         | Evidence (activity_simulation) | Renamed: user_note_1.txt → important_notes_FINAL.txt
+[2026-02-25 13:21:56] file_moved           | Activity Simulation       | Moved: user_note_2.txt → temp_files/moved_note.txt
+[2026-02-25 13:21:56] file_moved           | Evidence (activity_simulation) | Moved: user_note_2.txt → temp_files/moved_note.txt
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created swap file: .user_note_3.txt.swp
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created swap file: .user_note_3.txt.swp
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created lock file: ~$confidential_review.doc
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created lock file: ~$confidential_review.doc
+[2026-02-25 13:21:56] file_created         | Activity Simulation       | Created recent-use log: recently_opened.log
+[2026-02-25 13:21:56] file_created         | Evidence (activity_simulation) | Created recent-use log: recently_opened.log
+[2026-02-25 13:21:56] simulation_complete  | Evidence (activity_simulation) | Simulation finished — 19 actions recorded
+[2026-02-25 13:21:56] simulation           | Member 2 – Deletion Logs  | Simulated 20 user file activities
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Created Chrome History (8 entries)
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Created Firefox places.json (8 entries)
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Created Chrome Cookies (5 entries)
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Created Firefox cookies.json
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://mail.google.com/mail/inbox…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://banking.example.com/accounts…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Chrome): https://docs.python.org/3/library/os.html…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://mail.google.com/mail/inbox…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://banking.example.com/accounts…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Cached (Firefox): https://docs.python.org/3/library/os.html…
+[2026-02-25 13:37:58] simulation           | Evidence (browser_cache)  | Simulation complete: 16 artifacts created
+[2026-02-25 13:38:40] artifacts_parsed     | Evidence (browser_cache)  | Parsed 32 browser artifacts
+[2026-02-25 13:38:49] artifacts_deleted    | Evidence (browser_cache)  | Normal-deleted 10 browser artifact files
+[2026-02-25 13:38:54] artifacts_parsed     | Evidence (browser_cache)  | Parsed 0 browser artifacts
+[2026-02-25 13:39:00] metadata_collected   | Evidence (system_metadata) | Collected metadata for 10 files in /home/naegleria/Desktop/TARE_proj/forensic_project/test_environment
+[2026-02-25 13:39:02] syslog_collected     | Evidence (system_metadata) | Collected 50 system log lines (Linux)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | swap_file: .user_note_3.txt.swp (145 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | log_fragment: recently_opened.log (313 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | office_lock: ~$confidential_review.doc (24 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | swap_file: .user_note_3.txt.swp (145 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | log_fragment: recently_opened.log (313 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | office_lock: ~$confidential_review.doc (24 bytes)
+[2026-02-25 13:39:08] artifact_found       | Evidence (residual_data)  | log_fragment: xsel.log (0 bytes)
+[2026-02-25 13:39:18] artifact_found       | Evidence (residual_data)  | cache_file: notices.cache (0 bytes)
+[2026-02-25 13:39:18] artifact_found       | Evidence (residual_data)  | cache_file: 3c9d068aa053e2a1c4313fe3391b7a8ee57c4fbd09c4e8aeae49ef333a740150.cache (199 bytes)
+[2026-02-25 13:39:18] artifact_found       | Evidence (residual_data)  | cache_file: 8c054ac91082b2ed4862701ed278dc96a78db796db69dedc296e13baab307527.cache (199 bytes)
+[2026-02-25 13:39:18] artifact_found       | Evidence (residual_data)  | cache_file: 47d7b47961c7ef585686e506e0813818f7258527b141037db64a28a755f7725b.cache (0 bytes)
+[2026-02-25 13:39:18] artifact_found       | Evidence (residual_data)  | log_fragment: idea.log (324224 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | log_fragment: vpn-app.log (429735 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | backup_file: user-places.xbel.bak (4416 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | recent_registry: recently-used.xbel (172923 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | log_fragment: errors.log (78 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | log_fragment: home-9cd74fa6.log (32768 bytes)
+[2026-02-25 13:39:19] artifact_found       | Evidence (residual_data)  | log_fragment: wayland-session.log (0 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: chrome_debug.log (53717 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (46 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (76 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (0 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (114 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (1531 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (31932 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (32497 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (38 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (46007 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | log_fragment: 000003.log (1378 bytes)
+[2026-02-25 13:39:20] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27000 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27002 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:39:21] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2142 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (39 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:39:22] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (34761 bytes)
+[2026-02-25 13:39:23] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (50617 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: mime.cache (137668 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2897 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27000 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2186 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: loaders.cache (2923 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: gconv-modules.cache (27002 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: giomodule.cache (150 bytes)
+[2026-02-25 13:39:24] artifact_found       | Evidence (residual_data)  | cache_file: immodules.cache (2228 bytes)
+[2026-02-25 13:39:25] artifact_found       | Evidence (residual_data)  | cache_file: ld.so.cache (50617 bytes)
+[2026-02-25 13:39:25] artifact_found       | Evidence (residual_data)  | shortcut: Radmin VPN.lnk (553 bytes)
+[2026-02-25 13:39:25] artifact_found       | Evidence (residual_data)  | shortcut: Microsoft Threat Modeling Tool 2016.lnk (891 bytes)
+[2026-02-25 13:39:33] timeline_built       | Evidence (reconstruction) | Reconstructed timeline with 329 events
+[2026-02-25 13:40:47] deletion             | Member 2 – Deletion Logs  | Deleted 'collected_syslog.txt' using normal method
+[2026-02-25 13:40:52] verification         | Member 2 – Deletion Logs  | Verified 'collected_syslog.txt' – NOT RECOVERABLE
+[2026-02-25 13:41:07] deletion             | Member 2 – Deletion Logs  | Deleted '.user_note_3.txt.swp' using permanent method
+[2026-02-25 13:41:16] verification         | Member 2 – Deletion Logs  | Verified '.user_note_3.txt.swp' – NOT RECOVERABLE
+[2026-02-25 13:41:20] verification         | Member 2 – Deletion Logs  | Verified 'collected_syslog.txt' – NOT RECOVERABLE
+[2026-02-25 13:41:33] deletion             | Member 2 – Deletion Logs  | Deleted 'screenshot_desktop.png' using normal method
+[2026-02-25 13:41:42] verification         | Member 2 – Deletion Logs  | Verified 'screenshot_desktop.png' – NOT RECOVERABLE
+
+======================================================================
+  END OF REPORT
+======================================================================
