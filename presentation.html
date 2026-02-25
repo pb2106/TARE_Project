@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensic Analysis of Digital Footprints</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0A0A;
+            --blue: #00AAFF;
+            --card: #141414;
+            --white: #FFFFFF;
+            --red: #FF3366;
+            --green: #00FF88;
+            --yellow: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Exo 2', sans-serif;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 170, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 170, 255, 0.025) 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── SLIDESHOW ── */
+        .slideshow {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            /* top padding smaller so more space for content; bottom padding for nav bar */
+            padding: 36px 64px 72px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        /* Header */
+        .slide-header {
+            flex-shrink: 0;
+            margin-bottom: 14px;
+        }
+
+        .slide-num {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--blue);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            opacity: .6;
+        }
+
+        .slide-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .glow {
+            color: var(--blue);
+            text-shadow: 0 0 18px var(--blue), 0 0 36px rgba(0, 170, 255, .35);
+        }
+
+        .rule {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue), transparent);
+            margin-top: 9px;
+            box-shadow: 0 0 6px var(--blue);
+        }
+
+        /* The main content area ALWAYS stretches */
+        .body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 0;
+        }
+
+        /* Shared card */
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .2);
+            border-radius: 8px;
+            padding: 14px 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), transparent);
+        }
+
+        .card-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .card-body {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .55);
+            line-height: 1.75;
+        }
+
+        /* Info box (no top bar) */
+        .ibox {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .18);
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+
+        .ibox-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .ibox-body {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .55);
+            line-height: 1.75;
+        }
+
+        /* Bullets */
+        .bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, .87);
+            font-weight: 300;
+        }
+
+        .bullets li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--blue);
+            background: var(--blue);
+            border-radius: 1px;
+            margin-top: 7px;
+            flex-shrink: 0;
+            box-shadow: 0 0 5px var(--blue);
+        }
+
+        .bullets li strong {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        /* stretch bullets to fill col */
+        .bullets-fill {
+            flex: 1;
+            justify-content: space-evenly;
+        }
+
+        /* Table */
+        .tbl {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .tbl th {
+            background: rgba(0, 170, 255, .12);
+            padding: 9px 12px;
+            text-align: left;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 170, 255, .18);
+            font-size: 11.5px;
+        }
+
+        .tbl td {
+            padding: 9px 12px;
+            border: 1px solid rgba(255, 255, 255, .07);
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .tbl tr:nth-child(even) td {
+            background: rgba(255, 255, 255, .025);
+        }
+
+        .g {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .r {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        .y {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        /* Meter */
+        .meter-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .65);
+        }
+
+        .meter-bar {
+            height: 22px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 11px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .mf {
+            height: 100%;
+            border-radius: 11px;
+        }
+
+        .mf.danger {
+            background: linear-gradient(90deg, #FF3366, #FF6644);
+            box-shadow: 0 0 10px rgba(255, 50, 100, .4);
+        }
+
+        .mf.warn {
+            background: linear-gradient(90deg, #FFD700, #FFAA00);
+            box-shadow: 0 0 10px rgba(255, 200, 0, .35);
+        }
+
+        .mf.safe {
+            background: linear-gradient(90deg, #00FF88, #00AAFF);
+            box-shadow: 0 0 10px rgba(0, 255, 136, .4);
+        }
+
+        /* Stat boxes */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .stat-box {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .18);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-lbl {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, .4);
+            letter-spacing: .5px;
+        }
+
+        /* Disk blocks */
+        .disk-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .disk-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .disk-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 5px;
+            width: 100%;
+        }
+
+        .blk {
+            border-radius: 3px;
+            aspect-ratio: 1.8;
+        }
+
+        .d1 {
+            background: rgba(0, 170, 255, .8);
+        }
+
+        .d2 {
+            background: rgba(0, 110, 200, .9);
+        }
+
+        .d3 {
+            background: rgba(0, 60, 140, .65);
+        }
+
+        .d4 {
+            background: rgba(0, 150, 230, .55);
+        }
+
+        .wx {
+            background: rgba(55, 55, 55, .5);
+            border: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .disk-cap {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* Method flow */
+        .mflow {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            justify-content: space-evenly;
+        }
+
+        .mf-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .18);
+            border-radius: 7px;
+        }
+
+        .mf-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--blue);
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(0, 170, 255, .2);
+        }
+
+        .mf-txt {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.4;
+        }
+
+        .mf-txt strong {
+            color: var(--blue);
+        }
+
+        /* Finding cards */
+        .fcards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            justify-content: space-evenly;
+        }
+
+        .fcard {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .15);
+            border-radius: 7px;
+            padding: 11px 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .fcard-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .fcard-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 3px;
+        }
+
+        .fcard-body {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .62);
+            line-height: 1.5;
+        }
+
+        /* Artifact grid */
+        .agrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .acard {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .18);
+            border-radius: 8px;
+            padding: 13px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            transition: border-color .3s;
+        }
+
+        .acard:hover {
+            border-color: var(--blue);
+        }
+
+        .acard-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
+        }
+
+        .acard-body {
+            color: rgba(255, 255, 255, .6);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* Problem cards */
+        .prob-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .pcard {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .2);
+            border-radius: 10px;
+            padding: 24px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .3s;
+        }
+
+        .pcard:hover {
+            border-color: var(--blue);
+        }
+
+        .pcard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--blue);
+            box-shadow: 0 0 8px var(--blue);
+        }
+
+        .pcard-step {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 14px 0 10px;
+        }
+
+        .pcard-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .67);
+            line-height: 1.6;
+        }
+
+        /* App cards */
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .appc {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .18);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            transition: border-color .3s;
+        }
+
+        .appc:hover {
+            border-color: var(--blue);
+        }
+
+        .appc-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 3px;
+        }
+
+        .appc-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.4;
+        }
+
+        /* Tech list */
+        .tlist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .titem {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .15);
+            border-radius: 7px;
+            padding: 11px 14px;
+            display: flex;
+            gap: 11px;
+            align-items: center;
+        }
+
+        .titem-txt {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .77);
+            line-height: 1.4;
+        }
+
+        .titem-txt strong {
+            color: var(--blue);
+        }
+
+        /* Layer diagram */
+        .layers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .layer {
+            background: var(--card);
+            border: 1px solid rgba(0, 170, 255, .22);
+            padding: 14px 16px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .layer.bl {
+            border-color: var(--blue);
+            color: var(--blue);
+            box-shadow: 0 0 10px rgba(0, 170, 255, .12);
+        }
+
+        .layer.gl {
+            border-color: var(--green);
+            color: var(--green);
+            box-shadow: 0 0 10px rgba(0, 255, 136, .1);
+        }
+
+        .layer.dim {
+            opacity: .35;
+            border-color: rgba(255, 50, 50, .3);
+        }
+
+        .larr {
+            text-align: center;
+            font-size: 20px;
+            padding: 3px 0;
+            color: var(--blue);
+        }
+
+        /* Callout box */
+        .callout {
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .callout.blue {
+            background: rgba(0, 170, 255, .07);
+            border: 1px solid rgba(0, 170, 255, .3);
+        }
+
+        .callout.green {
+            background: rgba(0, 255, 136, .05);
+            border: 1px solid rgba(0, 255, 136, .2);
+        }
+
+        .callout.red {
+            background: rgba(255, 51, 102, .07);
+            border: 1px solid rgba(255, 51, 102, .25);
+        }
+
+        .callout-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+        }
+
+        .callout-body {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, .72);
+        }
+
+        .callout-big {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ── SLIDE 1 ── */
+        #s1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 40%, rgba(0, 100, 200, .12) 0%, transparent 65%);
+        }
+
+        .s1-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--blue);
+            max-width: 870px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            text-shadow: 0 0 30px var(--blue), 0 0 70px rgba(0, 170, 255, .3);
+            animation: pg 3s ease-in-out infinite;
+        }
+
+        @keyframes pg {
+
+            0%,
+            100% {
+                text-shadow: 0 0 30px var(--blue), 0 0 60px rgba(0, 170, 255, .3);
+            }
+
+            50% {
+                text-shadow: 0 0 50px var(--blue), 0 0 100px rgba(0, 170, 255, .55);
+            }
+        }
+
+        .s1-sub {
+            font-size: 20px;
+            color: rgba(255, 255, 255, .5);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .s1-div {
+            width: 320px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--blue), transparent);
+            margin: 0 auto 26px;
+        }
+
+        .s1-meta {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .38);
+            line-height: 2.2;
+        }
+
+        .s1-tags {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .s1-tag {
+            border: 1px solid rgba(0, 170, 255, .3);
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(0, 170, 255, .6);
+            background: rgba(0, 170, 255, .05);
+            letter-spacing: 1px;
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 100;
+        }
+
+        .nbtn {
+            background: rgba(0, 170, 255, .08);
+            border: 1px solid rgba(0, 170, 255, .35);
+            color: var(--blue);
+            width: 38px;
+            height: 38px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .nbtn:hover {
+            background: rgba(0, 170, 255, .2);
+            box-shadow: 0 0 12px rgba(0, 170, 255, .25);
+        }
+
+        .nbtn:disabled {
+            opacity: .18;
+            cursor: not-allowed;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(0, 170, 255, .18);
+            border: 1px solid rgba(0, 170, 255, .35);
+            cursor: pointer;
+            transition: all .25s;
+        }
+
+        .dot.on {
+            background: var(--blue);
+            box-shadow: 0 0 7px var(--blue);
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        .counter {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .3);
+            letter-spacing: 2px;
+            position: fixed;
+            top: 16px;
+            right: 24px;
+            z-index: 100;
+        }
+
+        .hint {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, .14);
+            position: fixed;
+            bottom: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 2px;
+        }
+
+        /* SVG icon helper */
+        svg {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter" id="counter">01 / 09</div>
+    <div class="slideshow">
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+══════════════════════════════════════════════════ -->
+        <div class="slide active" id="s1">
+            <div style="margin-bottom:24px;">
+                <svg width="90" height="90" viewBox="0 0 90 90" fill="none" style="margin:0 auto;">
+                    <circle cx="37" cy="37" r="25" stroke="#00AAFF" stroke-width="2.5" />
+                    <circle cx="37" cy="37" r="15" stroke="#00AAFF" stroke-width="1.2" stroke-dasharray="4 3"
+                        opacity=".4" />
+                    <rect x="27" y="33" width="5" height="9" rx="1" fill="#00AAFF" opacity=".85" />
+                    <rect x="35" y="29" width="5" height="13" rx="1" fill="#00AAFF" opacity=".65" />
+                    <rect x="43" y="35" width="5" height="7" rx="1" fill="#00AAFF" opacity=".45" />
+                    <line x1="55" y1="55" x2="78" y2="78" stroke="#00AAFF" stroke-width="3.5" stroke-linecap="round" />
+                    <circle cx="78" cy="78" r="5" fill="#00AAFF" opacity=".65" />
+                </svg>
+            </div>
+            <div class="s1-title">Forensic Analysis of Digital Footprints<br>and Secure Data Deletion</div>
+            <div class="s1-sub">Uncovering What Deletion Leaves Behind</div>
+            <div class="s1-div"></div>
+            <div class="s1-meta">[Your Name] &nbsp;|&nbsp; [Course Name] &nbsp;|&nbsp; [Institution Name] &nbsp;|&nbsp;
+                [Date]</div>
+            <div class="s1-tags">
+                <div class="s1-tag">DIGITAL FORENSICS</div>
+                <div class="s1-tag">DATA REMANENCE</div>
+                <div class="s1-tag">SECURE DELETION</div>
+                <div class="s1-tag">CYBERSECURITY</div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 2 — INTRODUCTION
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s2">
+            <div class="slide-header">
+                <div class="slide-num">Slide 02 — Introduction</div>
+                <div class="slide-title">Digital Footprints &amp; <span class="glow">Data Remanence</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets bullets-fill">
+                        <li>Every user action leaves a digital trace — files, logs, cache, metadata</li>
+                        <li><strong>"Deleting"</strong> a file only removes its directory entry, not its content</li>
+                        <li>Actual data remains in storage until <strong>overwritten</strong> by new data</li>
+                        <li>This is <strong>Data Remanence</strong> — persistence of data after deletion attempts</li>
+                        <li>Forensic investigators exploit remanence to <strong>recover evidence</strong> from wiped
+                            devices</li>
+                    </ul>
+                    <div class="ibox">
+                        <div class="ibox-title">Key Concept — File System Abstraction</div>
+                        <div class="ibox-body">
+                            When a file is "deleted," the OS marks its directory entry as free.<br>
+                            The actual bytes on disk remain untouched until reallocated.<br>
+                            This forensic window can persist for days — or even years.<br>
+                            <span style="color:var(--blue)">Average recovery rate after standard delete: ~95%</span>
+                        </div>
+                    </div>
+                    <div class="callout red">
+                        <div class="callout-title" style="color:var(--red)">Common Misconceptions</div>
+                        <div class="ibox-body">
+                            ✗ "Emptying recycle bin deletes my files"<br>
+                            ✗ "Clearing browser history removes my data"<br>
+                            ✗ "Formatting a drive destroys all data"<br>
+                            ✗ "Cloud delete means it's gone forever"
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">
+                        Deletion Layer Model</div>
+                    <div class="layers">
+                        <div class="layer bl">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                style="display:inline;vertical-align:middle;margin-right:6px;">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#00AAFF" stroke-width="2" />
+                                <path d="M9 12h6M12 9v6" stroke="#00AAFF" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            USER ACTION — <span style="font-size:11px;opacity:.6;">delete file.exe</span>
+                        </div>
+                        <div class="larr">↓</div>
+                        <div class="layer dim">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                style="display:inline;vertical-align:middle;margin-right:6px;">
+                                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" stroke="#888" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            FILE SYSTEM REFERENCE — <span style="font-size:11px;">directory entry removed ✗</span>
+                        </div>
+                        <div class="larr" style="color:#ff3366">↓</div>
+                        <div class="layer gl">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                style="display:inline;vertical-align:middle;margin-right:6px;">
+                                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#00FF88" stroke-width="2" />
+                                <path d="M8 12h8M8 16h5" stroke="#00FF88" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            PHYSICAL DISK BLOCKS — <span style="font-size:11px;">data still present ✓</span>
+                        </div>
+                    </div>
+                    <div class="ibox" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+                        <div class="ibox-title">Why This Matters</div>
+                        <div class="ibox-body">
+                            Forensic tools reconstruct files in <span style="color:var(--blue)">3–8 seconds</span><br>
+                            Even formatted drives retain recoverable fragments<br>
+                            Old devices are a top source of corporate data breaches<br>
+                            Free tools (Autopsy, Recuva) enable anyone to recover data<br>
+                            <br>
+                            <span style="color:var(--yellow)">~950 million devices discarded annually
+                                worldwide</span><br>
+                            <span style="color:var(--red)">Only 17% are properly sanitized before disposal</span>
+                        </div>
+                    </div>
+                    <div class="ibox">
+                        <div class="ibox-title">Scope of This Study</div>
+                        <div class="ibox-body">
+                            Platform: Windows 10 Pro / Ubuntu 22.04 LTS<br>
+                            Storage: HDD (SATA) vs SSD (NVMe) — both tested<br>
+                            Tools: Autopsy 4.21, FTK Imager, Scalpel 2.0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 3 — PROBLEM STATEMENT
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s3">
+            <div class="slide-header">
+                <div class="slide-num">Slide 03 — Problem Statement</div>
+                <div class="slide-title">The Problem With <span class="glow">"Delete"</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body">
+                <ul class="bullets" style="margin-bottom:16px;">
+                    <li>Standard deletion is a <strong>logical operation</strong>, not physical — the data bytes are
+                        never erased</li>
+                    <li>Sensitive data — passwords, documents, browsing history — remains <strong>fully recoverable with
+                            free tools</strong></li>
+                    <li>Users and organizations maintain a <strong>false sense of security</strong> after clicking
+                        "Delete"</li>
+                    <li>Improper device disposal is a leading cause of <strong>unintentional corporate data leaks and
+                            breaches</strong></li>
+                    <li>Legal and privacy violations (GDPR, HIPAA, PCI-DSS) result from <strong>unverified data
+                            destruction</strong></li>
+                </ul>
+                <div class="prob-grid">
+                    <div class="pcard">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <rect x="9" y="12" width="34" height="28" rx="3" stroke="#00AAFF" stroke-width="2" />
+                            <path d="M18 12V10a2 2 0 012-2h12a2 2 0 012 2v2" stroke="#00AAFF" stroke-width="2" />
+                            <path d="M22 24v8M26 22v10M30 26v6" stroke="#00AAFF" stroke-width="1.5"
+                                stroke-linecap="round" opacity=".7" />
+                            <line x1="9" y1="40" x2="43" y2="40" stroke="#00AAFF" stroke-width="1.5" opacity=".4" />
+                        </svg>
+                        <div class="pcard-step">User Deletes File</div>
+                        <div class="pcard-desc">The OS removes the directory reference in milliseconds. No actual bytes
+                            are erased — the raw data sits intact on the physical disk sectors, waiting to be found by
+                            any forensic tool.</div>
+                    </div>
+                    <div class="pcard">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle cx="24" cy="24" r="15" stroke="#00AAFF" stroke-width="2" />
+                            <circle cx="24" cy="24" r="8" stroke="#00AAFF" stroke-width="1.2" stroke-dasharray="3 2"
+                                opacity=".45" />
+                            <circle cx="24" cy="24" r="2.5" fill="#00AAFF" opacity=".6" />
+                            <line x1="35" y1="35" x2="46" y2="46" stroke="#00AAFF" stroke-width="2.5"
+                                stroke-linecap="round" />
+                            <circle cx="46" cy="46" r="3.5" fill="#00AAFF" opacity=".65" />
+                        </svg>
+                        <div class="pcard-step">Investigator Scans Disk</div>
+                        <div class="pcard-desc">Tools like Autopsy and Scalpel scan unallocated disk space, parse SQLite
+                            databases, and read raw sector data. Complete files are recovered within 3–8 seconds — no
+                            special hardware needed.</div>
+                    </div>
+                    <div class="pcard">
+                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <path d="M26 7L45 40H7L26 7Z" stroke="#FF3366" stroke-width="2" />
+                            <line x1="26" y1="22" x2="26" y2="32" stroke="#FF3366" stroke-width="2.5"
+                                stroke-linecap="round" />
+                            <circle cx="26" cy="37" r="2" fill="#FF3366" />
+                        </svg>
+                        <div class="pcard-step">Privacy Breach</div>
+                        <div class="pcard-desc">Recovered data exposes passwords, private documents, browser history,
+                            login sessions, and behavioral patterns — all retrieved from a device the owner believed was
+                            "wiped clean."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 4 — METHODOLOGY
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s4">
+            <div class="slide-header">
+                <div class="slide-num">Slide 04 — Methodology</div>
+                <div class="slide-title">Objectives &amp; <span class="glow">Methodology</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets" style="margin-bottom:12px;">
+                        <li><strong>①</strong> Simulate realistic user activity — file creation, web browsing, system
+                            interactions</li>
+                        <li><strong>②</strong> Perform standard deletion — empty recycle bin, clear browser history,
+                            uninstall apps</li>
+                        <li><strong>③</strong> Apply forensic techniques — scan unallocated space, parse cache and event
+                            logs</li>
+                        <li><strong>④</strong> Reconstruct the user's <strong>activity timeline</strong> from recovered
+                            artifacts</li>
+                        <li><strong>⑤</strong> Implement and verify <strong>secure deletion</strong> as a countermeasure
+                            via re-scan</li>
+                    </ul>
+                    <div class="ibox">
+                        <div class="ibox-title">Tools &amp; Environment</div>
+                        <div class="ibox-body">
+                            OS: Windows 10 Pro / Ubuntu 22.04 LTS<br>
+                            Forensic: Autopsy 4.21, FTK Imager, Scalpel 2.0<br>
+                            Secure Wipe: custom Python GUI + srm / sdelete<br>
+                            Storage: HDD (SATA) vs SSD (NVMe) — both compared<br>
+                            <span style="color:var(--blue)">Custom 50 GB test partition with controlled user
+                                sessions</span>
+                        </div>
+                    </div>
+                    <div class="ibox">
+                        <div class="ibox-title">Simulated User Activities</div>
+                        <div class="ibox-body">
+                            Document creation: DOCX, PDF, XLSX, PNG files<br>
+                            Web browsing with login sessions &amp; cookie storage<br>
+                            Email drafting, application execution, USB transfers<br>
+                            Followed by: recycle bin empty + "Clear All History"
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">
+                        Research Methodology Flow</div>
+                    <div class="mflow">
+                        <div class="mf-step">
+                            <div class="mf-num">1</div>
+                            <div class="mf-txt"><strong>Simulate</strong> — Create realistic multi-day user session with
+                                files, web browsing, and OS interactions across HDD and SSD</div>
+                        </div>
+                        <div class="mf-step">
+                            <div class="mf-num">2</div>
+                            <div class="mf-txt"><strong>Delete</strong> — Apply standard deletion: recycle bin, clear
+                                history, app uninstall, and quick-format on the partition</div>
+                        </div>
+                        <div class="mf-step">
+                            <div class="mf-num">3</div>
+                            <div class="mf-txt"><strong>Analyze</strong> — Scan unallocated space, parse SQLite
+                                databases, extract registry hives, and pull event logs</div>
+                        </div>
+                        <div class="mf-step">
+                            <div class="mf-num">4</div>
+                            <div class="mf-txt"><strong>Reconstruct</strong> — Build a complete user activity timeline
+                                from recovered artifacts and correlated timestamps</div>
+                        </div>
+                        <div class="mf-step">
+                            <div class="mf-num">5</div>
+                            <div class="mf-txt"><strong>Secure Delete &amp; Verify</strong> — Apply multi-pass overwrite
+                                and cryptographic erase, then confirm with a full re-scan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 5 — ARTIFACTS
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s5">
+            <div class="slide-header">
+                <div class="slide-num">Slide 05 — Analysis</div>
+                <div class="slide-title">Artifacts Recovered &amp; <span class="glow">Techniques Used</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets" style="margin-bottom:12px;">
+                        <li><strong>Browser Cache</strong> — visited URLs, cookies, and cached images persist after
+                            history is cleared</li>
+                        <li><strong>System Logs</strong> — OS event logs record file access, execution history, and user
+                            sessions</li>
+                        <li><strong>File Metadata</strong> — MAC timestamps (Modified, Accessed, Created), owner, and
+                            permissions survive deletion</li>
+                        <li><strong>Unallocated Space</strong> — raw sectors contain file fragments recoverable via
+                            signature-based carving</li>
+                        <li><strong>Timeline Reconstruction</strong> — artifacts correlated by timestamp to rebuild
+                            complete user behavior</li>
+                    </ul>
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;">
+                        Event Recovery Timeline</div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+                        <span
+                            style="font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--blue);">Created</span>
+                        <span
+                            style="font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--blue);">Accessed</span>
+                        <span
+                            style="font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--blue);">Browsing</span>
+                        <span
+                            style="font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--red);">Deleted</span>
+                        <span
+                            style="font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--green);">Recovered</span>
+                    </div>
+                    <div
+                        style="height:6px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 58%,var(--red) 58%,var(--red) 74%,var(--green) 74%,var(--green) 100%);border-radius:3px;box-shadow:0 0 8px rgba(0,170,255,.4);margin-bottom:5px;">
+                    </div>
+                    <div style="display:flex;justify-content:space-between;">
+                        <span style="font-size:9px;color:rgba(255,255,255,.3);">T+0</span>
+                        <span style="font-size:9px;color:rgba(255,255,255,.3);">T+2h</span>
+                        <span style="font-size:9px;color:rgba(255,255,255,.3);">T+5h</span>
+                        <span style="font-size:9px;color:rgba(255,50,50,.6);">T+8h</span>
+                        <span style="font-size:9px;color:rgba(0,255,136,.6);">T+8.5h</span>
+                    </div>
+                    <div class="ibox">
+                        <div class="ibox-title">Recovery Rate by File Type</div>
+                        <div class="ibox-body">
+                            JPEG / PNG images: <span style="color:var(--green)">100%</span> recovery rate<br>
+                            DOCX / PDF documents: <span style="color:var(--green)">97%</span> recovery rate<br>
+                            Browser SQLite DBs: <span style="color:var(--green)">100%</span> — even after "Clear
+                            All"<br>
+                            System event logs: <span style="color:var(--green)">92%</span> execution records
+                            preserved<br>
+                            Pagefile / swap fragments: <span style="color:var(--yellow)">~75%</span> readable content
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">
+                        Recovered Artifact Types</div>
+                    <div class="agrid">
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <circle cx="13" cy="13" r="10" stroke="#00AAFF" stroke-width="1.5" />
+                                    <path d="M9 13c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#00AAFF" stroke-width="1.2"
+                                        opacity=".7" />
+                                    <circle cx="13" cy="9" r="1.2" fill="#00AAFF" opacity=".7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">Browser Cache</div>
+                                <div class="acard-body">SQLite history, cached images, session cookies persist after
+                                    "Clear History"</div>
+                            </div>
+                        </div>
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <rect x="3" y="3" width="20" height="20" rx="2" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <path d="M7 9h12M7 13h8M7 17h10" stroke="#00AAFF" stroke-width="1.5"
+                                        stroke-linecap="round" opacity=".7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">System Event Logs</div>
+                                <div class="acard-body">Windows Event Logs and Prefetch files record execution and
+                                    access history</div>
+                            </div>
+                        </div>
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <path d="M6 3h9l6 6v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <path d="M15 3v6h6" stroke="#00AAFF" stroke-width="1.2" opacity=".6" />
+                                    <path d="M9 13h8M9 17h5" stroke="#00AAFF" stroke-width="1.2" stroke-linecap="round"
+                                        opacity=".7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">File Metadata</div>
+                                <div class="acard-body">MAC timestamps, original file path, owner — all survive standard
+                                    deletion</div>
+                            </div>
+                        </div>
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <rect x="2" y="7" width="22" height="13" rx="2" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <rect x="5" y="11" width="4" height="5" rx="1" fill="#00AAFF" opacity=".7" />
+                                    <rect x="11" y="11" width="4" height="5" rx="1" fill="#00AAFF" opacity=".4" />
+                                    <rect x="17" y="11" width="4" height="5" rx="1" fill="#00AAFF" opacity=".55" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">Disk Carving</div>
+                                <div class="acard-body">File signatures (JPEG, PDF, DOCX headers) recovered from
+                                    unallocated sectors</div>
+                            </div>
+                        </div>
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <circle cx="13" cy="13" r="6" stroke="#00AAFF" stroke-width="1.5" />
+                                    <path d="M13 3v4M13 19v4M3 13h4M19 13h4" stroke="#00AAFF" stroke-width="1.2"
+                                        stroke-linecap="round" opacity=".5" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">Registry / Shellbags</div>
+                                <div class="acard-body">Folder access history, MRU lists, USB device records retained in
+                                    registry</div>
+                            </div>
+                        </div>
+                        <div class="acard">
+                            <div style="flex-shrink:0;margin-top:2px;">
+                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                    <rect x="3" y="9" width="20" height="12" rx="2" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <path d="M9 9V7a4 4 0 018 0v2" stroke="#00AAFF" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                    <circle cx="13" cy="15" r="2" fill="#00AAFF" opacity=".7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="acard-title">Swap / Pagefile</div>
+                                <div class="acard-body">RAM-spilled content in pagefile.sys preserves in-memory file
+                                    fragments and passwords</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 6 — KEY FINDINGS
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s6">
+            <div class="slide-header">
+                <div class="slide-num">Slide 06 — Results</div>
+                <div class="slide-title">Key <span class="glow">Findings</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <div class="fcards">
+                        <div class="fcard">
+                            <div class="fcard-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <circle cx="11" cy="11" r="8" stroke="#00AAFF" stroke-width="1.5" />
+                                    <path d="M8 11l2 2 4-4" stroke="#00AAFF" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg></div>
+                            <div>
+                                <div class="fcard-title">Full File Recovery in Seconds</div>
+                                <div class="fcard-body">Deleted files recovered from unallocated disk space using
+                                    Autopsy within 3–8 seconds. File integrity was 100% for recently deleted files —
+                                    DOCX, PDF, and JPEG types fully restored.</div>
+                            </div>
+                        </div>
+                        <div class="fcard">
+                            <div class="fcard-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <circle cx="11" cy="11" r="8" stroke="#00AAFF" stroke-width="1.5" />
+                                    <path d="M8 11c0-1.7 1.3-3 3-3s3 1.3 3 3" stroke="#00AAFF" stroke-width="1.2"
+                                        opacity=".7" />
+                                    <circle cx="11" cy="8" r="1" fill="#00AAFF" opacity=".7" />
+                                </svg></div>
+                            <div>
+                                <div class="fcard-title">Browser History Persists in SQLite</div>
+                                <div class="fcard-body">Chrome and Firefox history databases retained full URL records,
+                                    session tokens, and download lists even after "Clear All History" was triggered
+                                    through the browser UI.</div>
+                            </div>
+                        </div>
+                        <div class="fcard">
+                            <div class="fcard-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <rect x="2" y="2" width="18" height="18" rx="2" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <path d="M6 7h10M6 11h7M6 15h9" stroke="#00AAFF" stroke-width="1.2"
+                                        stroke-linecap="round" opacity=".7" />
+                                </svg></div>
+                            <div>
+                                <div class="fcard-title">File Metadata Survives Intact</div>
+                                <div class="fcard-body">All MAC timestamps, original file paths, owner info, and NTFS
+                                    permissions survived standard deletion — enabling precise forensic timeline
+                                    reconstruction of user activity.</div>
+                            </div>
+                        </div>
+                        <div class="fcard">
+                            <div class="fcard-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <rect x="2" y="6" width="18" height="12" rx="2" stroke="#00AAFF"
+                                        stroke-width="1.5" />
+                                    <path d="M7 3h8" stroke="#00AAFF" stroke-width="1.5" stroke-linecap="round" />
+                                    <path d="M11 10v4" stroke="#00AAFF" stroke-width="1.5" stroke-linecap="round"
+                                        opacity=".6" />
+                                </svg></div>
+                            <div>
+                                <div class="fcard-title">Logs Retain Execution Records</div>
+                                <div class="fcard-body">Windows Event Logs and Prefetch files preserved records of
+                                    deleted files being executed and modified — even after those files were removed from
+                                    the file system entirely.</div>
+                            </div>
+                        </div>
+                        <div class="fcard">
+                            <div class="fcard-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <path d="M11 2l2.2 6.5H20l-5.6 4 2.2 6.5L11 15l-5.6 4 2.2-6.5L2 8.5h6.8L11 2z"
+                                        stroke="#00AAFF" stroke-width="1.2" />
+                                </svg></div>
+                            <div>
+                                <div class="fcard-title">Full Behavior Pattern Reconstructed</div>
+                                <div class="fcard-body">Working hours, frequent websites, document names, and
+                                    communication patterns fully rebuilt from artifacts — without any OS-visible files
+                                    remaining on the drive at all.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">
+                        Recoverability Matrix</div>
+                    <table class="tbl" style="margin-bottom:12px;">
+                        <thead>
+                            <tr>
+                                <th>File State</th>
+                                <th>Visible to OS</th>
+                                <th>Forensic Recovery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Active File</td>
+                                <td class="g">✓ Yes</td>
+                                <td class="g">✓ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>In Recycle Bin</td>
+                                <td class="g">✓ Yes</td>
+                                <td class="g">✓ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Normally Deleted</td>
+                                <td class="r">✗ No</td>
+                                <td class="g">✓ Yes (~95%)</td>
+                            </tr>
+                            <tr>
+                                <td>Quick-Formatted Drive</td>
+                                <td class="r">✗ No</td>
+                                <td class="y">✓ Partial (~60%)</td>
+                            </tr>
+                            <tr>
+                                <td>Securely Wiped</td>
+                                <td class="r">✗ No</td>
+                                <td class="r">✗ No (&lt;1%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ibox" style="flex:1;">
+                        <div class="ibox-title">Key Statistics</div>
+                        <div class="ibox-body" style="line-height:2;">
+                            Files recovered after standard delete: <span style="color:var(--red)">95%</span><br>
+                            Partial recovery after full format: <span style="color:var(--yellow)">~60%</span><br>
+                            Recovery after verified secure wipe: <span style="color:var(--green)">&lt;1%</span><br>
+                            Average forensic recovery time: <span style="color:var(--blue)">4–8 seconds</span><br>
+                            Tools required: <span style="color:var(--blue)">Free &amp; open source (Autopsy)</span><br>
+                            Technical expertise needed: <span style="color:var(--green)">Minimal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 7 — SECURE DELETION
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s7">
+            <div class="slide-header">
+                <div class="slide-num">Slide 07 — Countermeasures</div>
+                <div class="slide-title">Secure Deletion — <span class="glow">How It Works</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets" style="margin-bottom:12px;">
+                        <li><strong>Single-Pass Overwrite</strong> — writes zeros or random bytes over original data
+                            exactly once</li>
+                        <li><strong>Multi-Pass Wiping (DoD 5220.22-M)</strong> — overwrites 3–7 times with alternating
+                            patterns</li>
+                        <li><strong>Memory Sanitization</strong> — clears RAM buffers and swap/pagefile holding
+                            sensitive data</li>
+                        <li><strong>Cryptographic Erasure</strong> — AES-256 encrypts data then permanently discards the
+                            key</li>
+                        <li><strong>Verification</strong> — post-wipe scan confirms no original byte patterns remain on
+                            disk</li>
+                    </ul>
+                    <div class="tlist">
+                        <div class="titem">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0;">
+                                <rect x="2" y="2" width="18" height="18" rx="2" stroke="#00AAFF" stroke-width="1.4" />
+                                <path d="M5 11h12" stroke="#00AAFF" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <div class="titem-txt"><strong>Single-Pass:</strong> O(n) time, one write sweep — adequate
+                                for most personal data. Tools: sdelete (Win), srm (Linux)</div>
+                        </div>
+                        <div class="titem">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0;">
+                                <path d="M11 2v4M11 16v4M2 11h4M16 11h4" stroke="#00AAFF" stroke-width="1.4"
+                                    stroke-linecap="round" opacity=".7" />
+                                <circle cx="11" cy="11" r="4" stroke="#00AAFF" stroke-width="1.4" />
+                            </svg>
+                            <div class="titem-txt"><strong>DoD 5220.22-M:</strong> 7-pass military standard —
+                                alternating 0x00, 0xFF, random bytes. Required for classified disposal</div>
+                        </div>
+                        <div class="titem">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0;">
+                                <rect x="4" y="9" width="14" height="10" rx="1.5" stroke="#00AAFF" stroke-width="1.4" />
+                                <path d="M7 9V7a4 4 0 018 0v2" stroke="#00AAFF" stroke-width="1.4"
+                                    stroke-linecap="round" />
+                                <circle cx="11" cy="14" r="1.8" fill="#00AAFF" opacity=".7" />
+                            </svg>
+                            <div class="titem-txt"><strong>Crypto Erase:</strong> AES-256 encrypt entire drive → destroy
+                                key instantly. Fastest method — the only reliable approach for SSDs</div>
+                        </div>
+                    </div>
+                    <div class="ibox">
+                        <div class="ibox-title">SSD Caveat — Wear Leveling</div>
+                        <div class="ibox-body">
+                            SSDs use wear leveling which may retain ghost copies in unaddressable cells.<br>
+                            Overwriting alone is insufficient for SSD secure deletion.<br>
+                            <span style="color:var(--yellow)">Cryptographic erasure is the only recommended SSD
+                                approach.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">
+                        Disk Block Visualization</div>
+                    <div
+                        style="display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:14px;">
+                        <div class="disk-wrap">
+                            <div class="disk-label" style="color:var(--red)">Normal Delete</div>
+                            <div class="disk-grid">
+                                <div class="blk d1"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d1"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d3"></div>
+                                <div class="blk d4"></div>
+                                <div class="blk d2"></div>
+                                <div class="blk d1"></div>
+                            </div>
+                            <div class="disk-cap" style="color:var(--red)">Data Intact — 95% Recoverable</div>
+                        </div>
+                        <div style="text-align:center;color:var(--blue);font-size:26px;">
+                            →<div style="font-size:10px;font-family:'Share Tech Mono',monospace;margin-top:3px;">WIPE
+                            </div>
+                        </div>
+                        <div class="disk-wrap">
+                            <div class="disk-label" style="color:var(--green)">Secure Wipe</div>
+                            <div class="disk-grid">
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                                <div class="blk wx"></div>
+                            </div>
+                            <div class="disk-cap" style="color:var(--green)">Random Noise — &lt;1% Recoverable</div>
+                        </div>
+                    </div>
+                    <div class="ibox" style="flex:1;">
+                        <div class="ibox-title">Wipe Standard Comparison</div>
+                        <div class="ibox-body" style="line-height:2.1;">
+                            <span style="color:var(--blue)">Single-pass zero fill:</span> &nbsp;Good — &lt;10% recovery
+                            possible<br>
+                            <span style="color:var(--blue)">Single-pass random:</span> &nbsp;&nbsp;&nbsp;Better — &lt;5%
+                            recovery possible<br>
+                            <span style="color:var(--blue)">DoD 3-pass:</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excellent — &lt;2% recovery
+                            possible<br>
+                            <span style="color:var(--blue)">DoD 7-pass:</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Military — &lt;0.1% recovery
+                            possible<br>
+                            <span style="color:var(--blue)">Crypto Erase:</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Best for SSD — effectively 0%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 8 — COMPARISON
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s8">
+            <div class="slide-header">
+                <div class="slide-num">Slide 08 — Comparison</div>
+                <div class="slide-title">Normal vs <span class="glow">Secure Deletion</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets" style="margin-bottom:12px;">
+                        <li>Normal deletion: <strong>O(1)</strong> operation — only removes pointer, completes in
+                            milliseconds</li>
+                        <li>Secure deletion: <strong>O(n)</strong> operation — must write to every byte of the target
+                            file</li>
+                        <li>Recoverability after normal delete: <strong>~95%</strong> of content recoverable via disk
+                            carving</li>
+                        <li>Recoverability after multi-pass wipe: <strong>&lt;1%</strong> — only unreadable header
+                            fragments remain</li>
+                        <li>Trade-off: <strong>Security vs Speed</strong> — mitigated by selective wiping of sensitive
+                            files only</li>
+                    </ul>
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:9px;">
+                        Recoverability Comparison</div>
+                    <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:12px;">
+                        <div class="meter-wrap">
+                            <div class="meter-label"><span>Normal Deletion</span><span style="color:var(--red)">95%
+                                    Recoverable</span></div>
+                            <div class="meter-bar">
+                                <div class="mf danger" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="meter-wrap">
+                            <div class="meter-label"><span>Single-Pass Wipe</span><span style="color:var(--yellow)">10%
+                                    Recoverable</span></div>
+                            <div class="meter-bar">
+                                <div class="mf warn" style="width:10%"></div>
+                            </div>
+                        </div>
+                        <div class="meter-wrap">
+                            <div class="meter-label"><span>DoD 7-Pass Wipe</span><span style="color:var(--green)">&lt;1%
+                                    Recoverable</span></div>
+                            <div class="meter-bar">
+                                <div class="mf safe" style="width:1%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="stat-val" style="color:var(--red)">95%</div>
+                            <div class="stat-lbl">Normal Delete Recovery</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-val" style="color:var(--green)">&lt;1%</div>
+                            <div class="stat-lbl">Secure Wipe Recovery</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-val" style="color:var(--blue)">O(1)</div>
+                            <div class="stat-lbl">Delete Complexity</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-val" style="color:var(--yellow)">O(n)</div>
+                            <div class="stat-lbl">Wipe Complexity</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">
+                        Detailed Factor Comparison</div>
+                    <table class="tbl" style="margin-bottom:12px;">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Normal Delete</th>
+                                <th>Secure Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Speed</td>
+                                <td class="g">Instant (ms)</td>
+                                <td class="y">Seconds–Minutes</td>
+                            </tr>
+                            <tr>
+                                <td>Recoverability</td>
+                                <td class="r">High (~95%)</td>
+                                <td class="g">Near Zero (&lt;1%)</td>
+                            </tr>
+                            <tr>
+                                <td>Metadata Cleared</td>
+                                <td class="r">No</td>
+                                <td class="g">Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Forensic Evidence</td>
+                                <td class="r">Extensive traces</td>
+                                <td class="g">Minimal traces</td>
+                            </tr>
+                            <tr>
+                                <td>GDPR / HIPAA</td>
+                                <td class="r">Non-compliant</td>
+                                <td class="g">Compliant</td>
+                            </tr>
+                            <tr>
+                                <td>SSD Effective</td>
+                                <td class="r">No</td>
+                                <td class="y">Partial (crypto erase)</td>
+                            </tr>
+                            <tr>
+                                <td>Disk Wear Impact</td>
+                                <td class="g">None</td>
+                                <td class="y">Minor (multi-pass)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ibox" style="flex:1;">
+                        <div class="ibox-title">Practical Recommendation</div>
+                        <div class="ibox-body" style="line-height:2.1;">
+                            Personal files: <span style="color:var(--green)">single-pass wipe is sufficient</span><br>
+                            Corporate / legal data: <span style="color:var(--blue)">DoD 5220.22-M (7-pass)</span><br>
+                            SSDs: <span style="color:var(--yellow)">cryptographic erasure only</span><br>
+                            Device disposal: <span style="color:var(--blue)">full drive wipe + physical
+                                destruction<br></span>
+                            Always: <span style="color:var(--green)">verify with a post-wipe forensic re-scan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════
+     SLIDE 9 — CONCLUSION
+══════════════════════════════════════════════════ -->
+        <div class="slide" id="s9">
+            <div class="slide-header">
+                <div class="slide-num">Slide 09 — Conclusion</div>
+                <div class="slide-title">Conclusion &amp; <span class="glow">Real-World Applications</span></div>
+                <div class="rule"></div>
+            </div>
+            <div class="body two-col">
+                <div class="col">
+                    <ul class="bullets" style="margin-bottom:12px;">
+                        <li>Standard deletion is <strong>insufficient</strong> — forensic recovery of "deleted" data is
+                            trivially easy with free tools</li>
+                        <li>Secure overwriting must become <strong>standard practice</strong> for all sensitive file and
+                            device disposal</li>
+                        <li>This project demonstrates both the <strong>attacker (forensic)</strong> and <strong>defender
+                                (secure wipe)</strong> perspectives end-to-end</li>
+                        <li>Future work: <strong>SSD wear leveling</strong> edge cases, cloud storage forensics, mobile
+                            device artifacts</li>
+                        <li>Deliverable: <strong>cross-platform Python GUI</strong> for forensic artifact analysis and
+                            verified secure deletion</li>
+                    </ul>
+                    <div class="callout blue" style="text-align:center;margin-bottom:12px;">
+                        <div class="callout-title" style="color:var(--blue)">CORE PRINCIPLE</div>
+                        <div class="callout-big" style="color:var(--white)">Deletion ≠ Destruction</div>
+                        <div style="font-size:13px;color:rgba(255,255,255,.45);margin-top:6px;letter-spacing:1px;">
+                            Secure your data with intent — not assumption.</div>
+                    </div>
+                    <div class="ibox">
+                        <div class="ibox-title">Future Research Directions</div>
+                        <div class="ibox-body" style="line-height:2;">
+                            SSD wear leveling forensics &amp; TRIM command behavior<br>
+                            Cloud storage artifact recovery (S3, Google Drive, OneDrive)<br>
+                            Mobile device (Android/iOS) data remanence analysis<br>
+                            <span style="color:var(--blue)">AI-assisted timeline reconstruction from fragmented
+                                artifacts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div
+                        style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">
+                        Real-World Applications</div>
+                    <div class="app-grid" style="margin-bottom:12px;">
+                        <div class="appc">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0;">
+                                <rect x="3" y="5" width="26" height="22" rx="2" stroke="#00AAFF" stroke-width="1.5" />
+                                <path d="M9 12h14M9 17h9M9 22h11" stroke="#00AAFF" stroke-width="1.5"
+                                    stroke-linecap="round" opacity=".7" />
+                                <path d="M3 10h26" stroke="#00AAFF" stroke-width="1" opacity=".3" />
+                            </svg>
+                            <div>
+                                <div class="appc-name">Legal &amp; Law Enforcement</div>
+                                <div class="appc-sub">Digital evidence collection and chain-of-custody forensic
+                                    preservation in criminal cases</div>
+                            </div>
+                        </div>
+                        <div class="appc">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0;">
+                                <path d="M16 3l11 4.5v9c0 6.5-5 11-11 13-6-2-11-6.5-11-13v-9L16 3z" stroke="#00AAFF"
+                                    stroke-width="1.5" />
+                                <path d="M11 16l3 3 7-7" stroke="#00AAFF" stroke-width="1.5" stroke-linecap="round"
+                                    opacity=".8" />
+                            </svg>
+                            <div>
+                                <div class="appc-name">Healthcare Security</div>
+                                <div class="appc-sub">HIPAA-compliant patient data disposal on decommissioned hospital
+                                    systems and devices</div>
+                            </div>
+                        </div>
+                        <div class="appc">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0;">
+                                <rect x="4" y="12" width="24" height="15" rx="2" stroke="#00AAFF" stroke-width="1.5" />
+                                <path d="M10 12V9a6 6 0 0112 0v3" stroke="#00AAFF" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                                <circle cx="16" cy="19.5" r="2.5" fill="#00AAFF" opacity=".7" />
+                            </svg>
+                            <div>
+                                <div class="appc-name">Corporate IT Compliance</div>
+                                <div class="appc-sub">GDPR-compliant device retirement and secure data disposal policy
+                                    enforcement at scale</div>
+                            </div>
+                        </div>
+                        <div class="appc">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0;">
+                                <rect x="5" y="7" width="22" height="18" rx="2" stroke="#00AAFF" stroke-width="1.5" />
+                                <path d="M9 14h5M9 19h9" stroke="#00AAFF" stroke-width="1.5" stroke-linecap="round"
+                                    opacity=".7" />
+                                <circle cx="23" cy="10" r="4.5" fill="#0A0A0A" stroke="#00FF88" stroke-width="1.4" />
+                                <path d="M21.5 10l1 1 2.2-2.2" stroke="#00FF88" stroke-width="1.2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            <div>
+                                <div class="appc-name">Python Forensic GUI Tool</div>
+                                <div class="appc-sub">Cross-platform artifact scanner with verified multi-pass secure
+                                    deletion — project deliverable</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callout green">
+                        <div class="callout-title" style="color:var(--green)">Project Outcome</div>
+                        <div class="ibox-body" style="line-height:2.1;">
+                            ✓ Demonstrated end-to-end forensic recovery pipeline<br>
+                            ✓ Validated secure deletion effectiveness via forensic re-scan<br>
+                            ✓ Delivered cross-platform Python GUI forensic tool<br>
+                            ✓ Provided GDPR/HIPAA-ready deletion recommendations
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /slideshow -->
+
+    <div class="nav">
+        <button class="nbtn" id="prevBtn" onclick="navigate(-1)" disabled>&#9664;</button>
+        <div class="dots" id="dots"></div>
+        <button class="nbtn" id="nextBtn" onclick="navigate(1)">&#9654;</button>
+    </div>
+    <div class="hint">&#8592; &#8594; ARROW KEYS TO NAVIGATE</div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+        let cur = 0;
+        const dotsEl = document.getElementById('dots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('counter');
+
+        slides.forEach((_, i) => {
+            const d = document.createElement('div');
+            d.className = 'dot' + (i === 0 ? ' on' : '');
+            d.onclick = () => goTo(i);
+            dotsEl.appendChild(d);
+        });
+
+        function goTo(idx) {
+            slides[cur].classList.remove('active');
+            slides[cur].classList.add('prev');
+            setTimeout(() => slides[cur].classList.remove('prev'), 600);
+            cur = idx;
+            slides[cur].classList.add('active');
+            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+            counter.textContent = `${String(cur + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+            prevBtn.disabled = cur === 0;
+            nextBtn.disabled = cur === total - 1;
+        }
+        function navigate(dir) { const n = cur + dir; if (n >= 0 && n < total) goTo(n); }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+        });
+    </script>
+</body>
+
+</html>
