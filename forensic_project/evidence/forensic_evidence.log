@@ -206,3 +206,27 @@
 [2026-02-25 13:39:25] [FINDING] [residual_data] artifact_found: shortcut: Microsoft Threat Modeling Tool 2016.lnk (891 bytes)
 [2026-02-25 13:39:33] [INFO] [reconstruction] timeline_built: Reconstructed timeline with 329 events
 [2026-02-25 13:42:18] [INFO] [reconstruction] timeline_built: Reconstructed timeline with 234 events
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created text file: user_note_1.txt (59 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created text file: user_note_2.txt (48 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created text file: user_note_3.txt (265 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created text file: user_note_4.txt (49 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created text file: user_note_5.txt (235 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created document: confidential_review.doc (2976 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created image file: screenshot_desktop.png (1288 bytes)
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: confidential_review.doc
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: important_notes_FINAL.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: screenshot_desktop.png
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: user_note_1.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: user_note_2.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: user_note_3.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: user_note_4.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_accessed: Read file: user_note_5.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_renamed: Renamed: user_note_1.txt → important_notes_FINAL.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_moved: Moved: user_note_2.txt → temp_files/moved_note.txt
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created swap file: .user_note_3.txt.swp
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created lock file: ~$confidential_review.doc
+[2026-02-25 14:10:32] [INFO] [activity_simulation] file_created: Created recent-use log: recently_opened.log
+[2026-02-25 14:10:32] [INFO] [activity_simulation] simulation_complete: Simulation finished — 20 actions recorded
+[2026-02-25 14:11:17] [FINDING] [recovery_verification] recovery_check: .user_note_3.txt.swp: method=normal, recoverable=True, risk=HIGH
+[2026-02-25 14:12:09] [FINDING] [recovery_verification] recovery_check: .user_note_3.txt.swp: method=normal, recoverable=True, risk=HIGH
+[2026-02-25 14:16:43] [FINDING] [recovery_verification] recovery_check: moved_note.txt: method=permanent, recoverable=True, risk=MEDIUM

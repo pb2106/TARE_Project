@@ -1662,5 +1662,197 @@
     "event_type": "timeline_built",
     "severity": "INFO",
     "detail": "Reconstructed timeline with 234 events"
+  },
+  {
+    "id": 209,
+    "timestamp": "2026-02-25T14:10:32.352983",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_1.txt (59 bytes)"
+  },
+  {
+    "id": 210,
+    "timestamp": "2026-02-25T14:10:32.364041",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_2.txt (48 bytes)"
+  },
+  {
+    "id": 211,
+    "timestamp": "2026-02-25T14:10:32.370396",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_3.txt (265 bytes)"
+  },
+  {
+    "id": 212,
+    "timestamp": "2026-02-25T14:10:32.376667",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_4.txt (49 bytes)"
+  },
+  {
+    "id": 213,
+    "timestamp": "2026-02-25T14:10:32.381684",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created text file: user_note_5.txt (235 bytes)"
+  },
+  {
+    "id": 214,
+    "timestamp": "2026-02-25T14:10:32.386941",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created document: confidential_review.doc (2976 bytes)"
+  },
+  {
+    "id": 215,
+    "timestamp": "2026-02-25T14:10:32.394128",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created image file: screenshot_desktop.png (1288 bytes)"
+  },
+  {
+    "id": 216,
+    "timestamp": "2026-02-25T14:10:32.400773",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: confidential_review.doc"
+  },
+  {
+    "id": 217,
+    "timestamp": "2026-02-25T14:10:32.405911",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: important_notes_FINAL.txt"
+  },
+  {
+    "id": 218,
+    "timestamp": "2026-02-25T14:10:32.410634",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: screenshot_desktop.png"
+  },
+  {
+    "id": 219,
+    "timestamp": "2026-02-25T14:10:32.417537",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_1.txt"
+  },
+  {
+    "id": 220,
+    "timestamp": "2026-02-25T14:10:32.422728",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_2.txt"
+  },
+  {
+    "id": 221,
+    "timestamp": "2026-02-25T14:10:32.430876",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_3.txt"
+  },
+  {
+    "id": 222,
+    "timestamp": "2026-02-25T14:10:32.436983",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_4.txt"
+  },
+  {
+    "id": 223,
+    "timestamp": "2026-02-25T14:10:32.443084",
+    "module": "activity_simulation",
+    "event_type": "file_accessed",
+    "severity": "INFO",
+    "detail": "Read file: user_note_5.txt"
+  },
+  {
+    "id": 224,
+    "timestamp": "2026-02-25T14:10:32.452569",
+    "module": "activity_simulation",
+    "event_type": "file_renamed",
+    "severity": "INFO",
+    "detail": "Renamed: user_note_1.txt \u2192 important_notes_FINAL.txt"
+  },
+  {
+    "id": 225,
+    "timestamp": "2026-02-25T14:10:32.462622",
+    "module": "activity_simulation",
+    "event_type": "file_moved",
+    "severity": "INFO",
+    "detail": "Moved: user_note_2.txt \u2192 temp_files/moved_note.txt"
+  },
+  {
+    "id": 226,
+    "timestamp": "2026-02-25T14:10:32.470134",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created swap file: .user_note_3.txt.swp"
+  },
+  {
+    "id": 227,
+    "timestamp": "2026-02-25T14:10:32.476824",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created lock file: ~$confidential_review.doc"
+  },
+  {
+    "id": 228,
+    "timestamp": "2026-02-25T14:10:32.486028",
+    "module": "activity_simulation",
+    "event_type": "file_created",
+    "severity": "INFO",
+    "detail": "Created recent-use log: recently_opened.log"
+  },
+  {
+    "id": 229,
+    "timestamp": "2026-02-25T14:10:32.492266",
+    "module": "activity_simulation",
+    "event_type": "simulation_complete",
+    "severity": "INFO",
+    "detail": "Simulation finished \u2014 20 actions recorded"
+  },
+  {
+    "id": 230,
+    "timestamp": "2026-02-25T14:11:17.268315",
+    "module": "recovery_verification",
+    "event_type": "recovery_check",
+    "severity": "FINDING",
+    "detail": ".user_note_3.txt.swp: method=normal, recoverable=True, risk=HIGH"
+  },
+  {
+    "id": 231,
+    "timestamp": "2026-02-25T14:12:09.728603",
+    "module": "recovery_verification",
+    "event_type": "recovery_check",
+    "severity": "FINDING",
+    "detail": ".user_note_3.txt.swp: method=normal, recoverable=True, risk=HIGH"
+  },
+  {
+    "id": 232,
+    "timestamp": "2026-02-25T14:16:43.283871",
+    "module": "recovery_verification",
+    "event_type": "recovery_check",
+    "severity": "FINDING",
+    "detail": "moved_note.txt: method=permanent, recoverable=True, risk=MEDIUM"
   }
 ]

@@ -9,6 +9,7 @@ Provides three deletion strategies through a common interface:
 """
 
 import os
+import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -19,6 +20,12 @@ class DeletionTechniques:
     """Unified interface for multiple file deletion strategies."""
 
     METHODS = ["normal", "permanent", "secure"]
+
+    # Default simulated-trash folder (inside forensic_project)
+    _SIMULATED_TRASH = (
+        Path(__file__).resolve().parent.parent.parent
+        / "forensic_project" / "test_environment" / "deleted_files"
+    )
 
     def __init__(self):
         """
@@ -138,20 +145,34 @@ class DeletionTechniques:
     # ------------------------------------------------------------------
 
     def _normal_delete(self, filepath):
-        """Attempt to move the file to the OS trash."""
-        details = {"technique": "normal", "trash_used": False}
+        """Move the file to the OS trash or a simulated trash directory."""
+        filepath = Path(filepath).resolve()
+        details = {"technique": "normal", "trash_used": False, "trash_path": None}
         try:
-            # Try send2trash for proper Recycle Bin integration
+            # Try send2trash for proper Recycle Bin / system-trash integration
             from send2trash import send2trash
             send2trash(str(filepath))
             details["trash_used"] = True
-            details["note"] = "File moved to Recycle Bin"
-        except ImportError:
-            # Fallback: just delete (simulates normal user delete)
-            os.remove(filepath)
+            details["note"] = "File moved to system Recycle Bin / Trash"
+        except (ImportError, Exception):
+            # Fallback: move to a simulated trash directory so the file
+            # is preserved and can be found by the recovery scanner.
+            trash_dir = self._SIMULATED_TRASH
+            trash_dir.mkdir(parents=True, exist_ok=True)
+            dest = trash_dir / filepath.name
+            # Avoid overwriting an existing file in simulated trash
+            if dest.exists():
+                stem, suffix = dest.stem, dest.suffix
+                counter = 1
+                while dest.exists():
+                    dest = trash_dir / f"{stem}_{counter}{suffix}"
+                    counter += 1
+            shutil.move(str(filepath), str(dest))
+            details["trash_used"] = True
+            details["trash_path"] = str(dest)
             details["note"] = (
-                "send2trash not installed – file removed directly. "
-                "Install send2trash for Recycle Bin support."
+                "send2trash unavailable — file moved to simulated trash "
+                f"({dest})"
             )
         return details
 

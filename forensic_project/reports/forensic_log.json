@@ -176,5 +176,69 @@
       "summary": "\u2713 File 'screenshot_desktop.png' appears to be securely deleted. No recoverable artifacts found.",
       "found_artifacts": []
     }
+  },
+  {
+    "id": 9,
+    "timestamp": "2026-02-25T14:10:32.498990",
+    "action": "Performed 21 user file activities",
+    "category": "simulation",
+    "status": "success",
+    "details": {
+      "files_created": []
+    }
+  },
+  {
+    "id": 10,
+    "timestamp": "2026-02-25T14:10:46.217988",
+    "action": "Deleted '.user_note_3.txt.swp' using normal method",
+    "category": "deletion",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/.user_note_3.txt.swp",
+      "method": "normal",
+      "status": "success",
+      "timestamp": "2026-02-25T14:10:46.209450",
+      "file_size": 145,
+      "error": null,
+      "details": {
+        "technique": "normal",
+        "trash_used": true,
+        "trash_path": null,
+        "note": "File moved to system Recycle Bin / Trash"
+      },
+      "metadata": {
+        "filename": ".user_note_3.txt.swp",
+        "size_bytes": 145,
+        "created": "2026-02-25T14:10:32.469806",
+        "modified": "2026-02-25T14:10:32.469806",
+        "accessed": "2026-02-25T14:10:39.659804"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "timestamp": "2026-02-25T14:11:37.306113",
+    "action": "Deleted 'moved_note.txt' using permanent method",
+    "category": "deletion",
+    "status": "success",
+    "details": {
+      "filepath": "/home/naegleria/Desktop/TARE_proj/forensic_project/test_environment/temp_files/moved_note.txt",
+      "method": "permanent",
+      "status": "success",
+      "timestamp": "2026-02-25T14:11:37.303289",
+      "file_size": 48,
+      "error": null,
+      "details": {
+        "technique": "permanent",
+        "note": "File permanently removed (bypassed trash)"
+      },
+      "metadata": {
+        "filename": "moved_note.txt",
+        "size_bytes": 48,
+        "created": "2026-02-25T14:10:32.459804",
+        "modified": "2026-02-25T14:10:32.363337",
+        "accessed": "2026-02-25T14:10:32.883804"
+      }
+    }
   }
 ]

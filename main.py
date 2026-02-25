@@ -222,7 +222,8 @@ def _get_trash_directories():
         # FreeDesktop trash spec
         dirs.append(home / ".local" / "share" / "Trash" / "files")
         dirs.append(home / ".local" / "share" / "Trash" / "info")
-        dirs.append(Path("/tmp"))
+        # Note: /tmp is intentionally excluded — scanning it causes
+        # extreme slowdowns and timeouts with thousands of files.
     elif system == "Darwin":
         dirs.append(home / ".Trash")
     elif system == "Windows":
@@ -247,6 +248,7 @@ def _scan_for_file(filename, target_hash=None, content_sample_hex=None):
     evidence = []
     scan_dirs = [
         TEST_ENV,
+        TEST_ENV / "deleted_files",
         PROJECT_DIR / "evidence",
     ] + _get_trash_directories()
 
@@ -420,6 +422,12 @@ def _run_recovery_analysis(filepath):
 
     # ── Check 2: Deletion method analysis ───────────────────────────
     if method == "normal":
+        trash_path = record.get("trash_path", "")
+        trash_detail = (
+            f"File preserved at: {trash_path}"
+            if trash_path
+            else "File moved to system Recycle Bin / Trash"
+        )
         checks.append({
             "name": "Deletion Method Analysis",
             "passed": True,
@@ -433,7 +441,7 @@ def _run_recovery_analysis(filepath):
             "type": "Recycle Bin / Trash",
             "detail": (
                 "Normal deletion only moves the file to the system trash. "
-                "Full content is preserved and can be restored."
+                f"Full content is preserved and can be restored. {trash_detail}"
             ),
         })
 
@@ -878,6 +886,7 @@ def page_deletion():
                 "size": selected_file["Size_bytes"],
                 "secure_mode": pattern if method == "secure" else None,
                 "secure_passes": passes if method == "secure" else None,
+                "trash_path": None,  # populated after deletion for normal method
             }
 
             progress = st.progress(0, text="Processing...")
@@ -895,6 +904,10 @@ def page_deletion():
             if result["status"] == "success":
                 if abs_path not in st.session_state.deletion_history:
                     st.session_state.deletion_history.append(abs_path)
+                # Capture trash_path from the deletion result details
+                details = result.get("details", {})
+                if details.get("trash_path"):
+                    st.session_state.deletion_records[abs_path]["trash_path"] = details["trash_path"]
                 st.success(f"{method.upper()} deletion completed successfully.")
                 fl.log_deletion(fpath, method, result)
             else:
